@@ -175,19 +175,19 @@ header nav ul li a:hover {
 }
 
 .common-questions {
-  background-image: linear-gradient(to bottom, #78c240, #59922e, #4c742e);
+  background-color: #B2FFA6;
   width: 100%;
 }
 
 .common-questions h1 {
-  color: white;
+  color: #989898;
   font-size: 3.4rem;
   padding: 10rem;
   text-align: center;
 }
 
 .common-questions-container {
-  width: 75% !important;
+  width: 75%;
   margin: auto;
   padding: 5rem 0rem;
   color: #1f1f1fd5;
