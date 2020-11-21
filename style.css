@@ -24,6 +24,10 @@ body {
   font-size: 1.6rem;
 }
 
+header {
+  width: 100vw;
+}
+
 .menu-container {
   display: flex;
   align-items: center;
@@ -34,9 +38,9 @@ body {
 }
 
 header img:hover {
-    cursor: pointer;
-    opacity: 0.9;
-  }
+  cursor: pointer;
+  opacity: 0.9;
+}
 
 header img {
   width: 180px;
@@ -53,12 +57,12 @@ header nav ul li {
 
 header nav ul li a {
   text-decoration: none;
-  color: rgb(46, 46, 46);
+  color: #555;
   text-transform: uppercase;
   font-weight: 400;
   font-size: 1.3rem;
   padding: 1rem;
-  transition: all 0.25s ease-in;
+  transition: all 0.1s ease-out;
 }
 
 header nav ul li a.active {
@@ -165,23 +169,14 @@ header nav ul li a:hover {
   font-size: 1.6rem;
 }
 
-.footer-container {
-  position: fixed;
-  margin-bottom: 0;
-  bottom: 0;
-  background-color: #1f1f1fde;
-  width: 100%;
-  height: 10vh;
-}
-
 .common-questions {
-  background-color: #B2FFA6;
-  width: 100%;
+  background-color: #31a24c;
+  width: 100vw;
 }
 
 .common-questions h1 {
-  color: #989898;
-  font-size: 3.4rem;
+  color: white;
+  font-size: 3.2rem;
   padding: 10rem;
   text-align: center;
 }
@@ -189,7 +184,7 @@ header nav ul li a:hover {
 .common-questions-container {
   width: 75%;
   margin: auto;
-  padding: 5rem 0rem;
+  /* padding: 0 0; */
   color: #1f1f1fd5;
   text-align: justify;
 }
@@ -203,11 +198,109 @@ header nav ul li a:hover {
 
 .common-questions-container p {
   font-size: 1.6rem;
-  line-height: 2;
+  line-height: 3rem;
 }
 
-/* .text-cq-container {
-  padding: 10rem;
-} */
+main .text-cq-c {
+  width: 80%;
+  margin: auto;
+}
+
+/* scrollbar */
+::-webkit-scrollbar-track {
+  background-color: #f4f4f4;
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #c7c7c7;
+  border-radius: 10px;
+}
+
+@media (max-width: 810px) {
+  nav {
+    display: none;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0;
+  }
+
+  .one,
+  .two,
+  .three {
+    background-color: #555;
+    height: 2.2px;
+    border-radius: 10px;
+    width: 60%;
+    margin: 5px auto;
+
+    transition-duration: 0.3s;
+  }
+
+  .menu-toggle {
+    width: 40px;
+    height: 30px;
+  }
+
+  /* fullscreen */
+  .menu-section.on {
+    position: absolute;
+    top: 0px;
+    left: 0;
+
+    width: 100vw;
+    height: 55vh;
+
+    background: none;
+
+    z-index: 9;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .menu-section.on nav {
+    border-top: 1px solid  rgba(85, 85, 85, 0.301);
+    border-bottom: 1px solid  rgba(85, 85, 85, 0.301);
+    margin-top: 160px;
+    display: block;
+    background-color: #ffffff;
+    width: 100vw;
+  }
+
+  .menu-section.on .menu-toggle {
+    position: absolute;
+    right: 25px;
+    top: 15px;
+  }
+
+  .menu-section.on .menu-toggle .one {
+    transform: rotate(45deg) translate(7px, 7px);
+  }
+
+  .menu-section.on .menu-toggle .two {
+    opacity: 0;
+  }
+
+  .menu-section.on .menu-toggle .three {
+    transform: rotate(-45deg) translate(2.2px, -3px);
+  }
+
+  .menu-section.on nav ul {
+    padding: 2rem;
+    display: block;
+  }
+
+  .menu-section.on nav ul a {
+    transition-duration: 0.5s;
+    font-size: 1.3rem;
+    line-height: 4rem;
+    display: block;
+  }
+}
+
 /* atribuição img contato
 <a href='https://br.freepik.com/vetores/fundo'>Fundo vetor criado por rawpixel.com - br.freepik.com</a> */
