@@ -223,10 +223,6 @@ main .text-cq-c {
     display: none;
   }
 
-  ::-webkit-scrollbar {
-    width: 0;
-  }
-
   .one,
   .two,
   .three {
@@ -295,11 +291,14 @@ main .text-cq-c {
   }
 
   .menu-section.on nav ul a {
-    transition-duration: 0.5s;
     font-size: 1.3rem;
     line-height: 4rem;
     display: block;
   }
+
+  .common-questions-container {
+    width: 90%;
+}
 }
 
 /* atribuição img contato
