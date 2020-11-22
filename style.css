@@ -231,13 +231,16 @@ main .text-cq-c {
     border-radius: 10px;
     width: 60%;
     margin: 5px auto;
-
     transition-duration: 0.3s;
   }
 
   .menu-toggle {
     width: 40px;
     height: 30px;
+  }
+
+  .menu-toggle:hover {
+    cursor: pointer;
   }
 
   /* fullscreen */
@@ -251,7 +254,7 @@ main .text-cq-c {
 
     background: none;
 
-    z-index: 9;
+    z-index: 10;
 
     display: flex;
     justify-content: center;
@@ -259,8 +262,8 @@ main .text-cq-c {
   }
 
   .menu-section.on nav {
-    border-top: 1px solid  rgba(85, 85, 85, 0.301);
-    border-bottom: 1px solid  rgba(85, 85, 85, 0.301);
+    border-top: 1px solid rgba(85, 85, 85, 0.301);
+    border-bottom: 1px solid rgba(85, 85, 85, 0.301);
     margin-top: 160px;
     display: block;
     background-color: #ffffff;
@@ -298,7 +301,7 @@ main .text-cq-c {
 
   .common-questions-container {
     width: 90%;
-}
+  }
 }
 
 /* atribuição img contato
