@@ -27,6 +27,8 @@ body {
 
 header {
   width: 100vw;
+  /* position: fixed; */
+  background-color: #ffffff;
 }
 
 .menu-container {
@@ -58,17 +60,17 @@ header nav ul li {
 
 header nav ul li a {
   text-decoration: none;
-  color: #555;
+  color: rgb(70, 70, 70);
   text-transform: uppercase;
-  font-weight: 400;
+  font-weight: 300;
   font-size: 1.3rem;
   padding: 1rem;
   transition: all 0.1s ease-out;
 }
 
 header nav ul li a.active {
-  color: #31a24c;
-  font-weight: 500;
+  color: #31af11;
+  font-weight: 400;
 }
 
 header nav ul li a:hover {
@@ -105,20 +107,21 @@ main .about-content {
 /* PERGUNTAS FREQUENTES */
 
 .common-questions-container {
-  color: #1f1f1fd5;
+  color: #555;
   text-align: justify;
 }
 
 .common-questions-container h2 {
   font-size: 2rem;
   padding: 5rem 0 3rem 0;
-  font-weight: 600;
-  color: #1f1f1f;
+  font-weight: 300;
+  color:#31af11;
 }
 
 .common-questions-container p {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   line-height: 3rem;
+  font-weight: 300;
 }
 
 /* LEGISLAÇÃO */
