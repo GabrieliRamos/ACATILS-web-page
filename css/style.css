@@ -109,6 +109,7 @@ main .about-content {
 .common-questions-container {
   color: #555;
   text-align: justify;
+  margin: auto;
 }
 
 .common-questions-container h2 {
@@ -293,9 +294,6 @@ main .about-content {
     display: block;
   }
 
-  .common-questions-container {
-    width: 90%;
-  }
 }
 
 /* atribuição img contato

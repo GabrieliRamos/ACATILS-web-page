@@ -246,14 +246,14 @@ textarea.input {
 }
 
 @media (max-width: 480px) {
-  .container {
-    padding: 1.5rem;
+  .container-contact {
+    padding: 0;
   }
 
   .contact-info:before {
     display: none;
   }
-
+  
   form,
   .contact-info {
     padding: 1.7rem 1.6rem;
