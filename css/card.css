@@ -40,7 +40,6 @@ main .container-notices {
 
 .card-content:hover {
   transition: 0.3s;
-  transform: scale(1.02);
   cursor: pointer;
 }
 

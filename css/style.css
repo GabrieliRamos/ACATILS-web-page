@@ -25,7 +25,7 @@ body {
 }
 
 header {
-  width: 100vw;
+  width: 100%;
   /* position: fixed; */
   background-color: #ffffff;
 }
@@ -83,7 +83,7 @@ main .container {
 
 .title-wrapper {
   background-color: #31a24c;
-  width: 100vw;
+  width: 100%;
   padding: 3rem 0;
 }
 
@@ -252,9 +252,7 @@ main .about-content {
   }
 
   .menu-section.on nav {
-    border-top: 1px solid rgba(85, 85, 85, 0.301);
     border-bottom: 1px solid rgba(85, 85, 85, 0.301);
-    margin-top: 160px;
     display: block;
     background-color: #ffffff;
     width: 100vw;
