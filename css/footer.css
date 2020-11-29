@@ -115,27 +115,27 @@ footer .info-footer .information {
   width: 25rem;
 }
 
-::-webkit-input-placeholder {
+.input-f::-webkit-input-placeholder {
   color: rgb(163, 163, 163);
   font-size: 1.5rem;
   font-weight: 300;
 }
 
-:-moz-placeholder {
+.input-f:-moz-placeholder {
   /* Firefox 18- */
   color: rgb(163, 163, 163);
   font-size: 1.5rem;
   font-weight: 300;
 }
 
-::-moz-placeholder {
+.input-f::-moz-placeholder {
   /* Firefox 19+ */
   color: rgb(163, 163, 163);
   font-size: 1.5rem;
   font-weight: 300;
 }
 
-:-ms-input-placeholder {
+.input-f:-ms-input-placeholder {
   color: rgb(163, 163, 163);
   font-size: 1.5rem;
   font-weight: 300;

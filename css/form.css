@@ -12,7 +12,7 @@ textarea {
   font-family: "Poppins", sans-serif;
 }
 
-.container-contact{
+.container-contact {
   position: relative;
   width: 100%;
   min-height: 100vh;
@@ -25,6 +25,7 @@ textarea {
 }
 
 .form {
+  margin-top: -7rem;
   width: 100%;
   max-width: 90%;
   background-color: #fff;
@@ -34,7 +35,6 @@ textarea {
   overflow: hidden;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  min-height: 760px;
 }
 
 .contact-form {
@@ -95,25 +95,27 @@ textarea.input {
   overflow-y: auto;
 }
 
-::-webkit-input-placeholder {
-  color: #fff;
-font-size: 1.5rem;
-font-weight: 300;
-}
-
-:-moz-placeholder { /* Firefox 18- */
+.input::-webkit-input-placeholder {
   color: #fff;
   font-size: 1.5rem;
   font-weight: 300;
 }
 
-::-moz-placeholder {  /* Firefox 19+ */
+.input:-moz-placeholder {
+  /* Firefox 18- */
   color: #fff;
   font-size: 1.5rem;
   font-weight: 300;
 }
 
-:-ms-input-placeholder {  
+.input::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.input:-ms-input-placeholder {
   color: #fff;
   font-size: 1.5rem;
   font-weight: 300;
@@ -124,7 +126,7 @@ font-weight: 300;
   background-color: #fff;
   border: 2px solid #fafafa;
   font-size: 1.3rem;
-  color:  #31a24c;
+  color: #31a24c;
   line-height: 1;
   border-radius: 25px;
   outline: none;
@@ -149,7 +151,7 @@ font-weight: 300;
 
 .text {
   color: #333;
-  margin: 1.2rem 0 .5rem 0;
+  margin: 1.2rem 0 0.5rem 0;
 }
 
 .info {
@@ -188,7 +190,7 @@ font-weight: 300;
   width: 35px;
   height: 35px;
   border-radius: 50%;
-  background: linear-gradient(45deg,#31af11,#31a24c);
+  background: linear-gradient(45deg, #31af11, #31a24c);
   color: #fff;
   text-align: center;
   line-height: 35px;
@@ -213,6 +215,7 @@ font-weight: 300;
 @media (max-width: 850px) {
   .form {
     grid-template-columns: 1fr;
+    margin-top: 2rem;
   }
 
   .contact-info:before {
