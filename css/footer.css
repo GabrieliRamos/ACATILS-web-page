@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
+
+
 a {
     text-decoration: none;
 }
@@ -7,8 +10,10 @@ ul {
 }
 
 footer {
-    background-color: #353745;
+    background-color: #424455;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color:  #c9c9c9;
 }
 
 footer {
@@ -20,35 +25,13 @@ footer {
   }
   
 
-.f-logo {
-    color: #fff;
-    letter-spacing: 2px;
-    padding: 5px 10px;
-    font-size:25px;
-}
-
 .up-section ul {
-    font-family: calibri;
     margin: 0px;
     padding: 0 20px;
 }
 
 .up-section h1{
-    color: #9697a0;
-    font-size: 20px;
-    font-family: calibri;
-
-}
-
-.up-section ul li a {
-    font-size: 16px;
-    color: #575a70;
-}
-
-.up-section ul li p {
-    font-size: 14px;
-    color: #575a70;
-    line-height:10px;
+    font-size: 2rem;
 }
 
 .up-section {
@@ -58,5 +41,31 @@ footer {
     margin: 5px;
     width: 80%;
     flex-wrap: wrap;
+}
 
+.up-section ul li p {
+    line-height: 1.5;
+    font-size: 1.6rem;
+    font-weight: 300;
+}
+
+.social-media a i {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color:  #4a4d61;
+    color: #fff;
+    text-align: center;
+    line-height: 35px;
+    margin-right: 0.5rem;
+    transition: 0.3s;
+  }
+
+.social-media a i:hover {
+    background-color:  #535669;
+}
+
+
+.social{
+    padding: 2rem 2rem;
 }
