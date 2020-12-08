@@ -6,15 +6,15 @@ main .table-container{
     margin: 25px 0;
     font-size: 0.9em;
     min-width: 400px;
-    border-radius: 5px 5px 0 0;
+    /* border-radius: 5px 5px 0 0; */
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     text-align: center;
   }
   
   .content-table thead tr {
-    background-color: #31a24c;
-    color: #ffffff;
+    background-color: #44ff70;
+    color: rgb(255, 255, 255);
   }
   
   .content-table th,
@@ -31,5 +31,5 @@ main .table-container{
   }
   
   .content-table tbody tr:last-of-type {
-    border-bottom: 2px solid #31a24c;
+    border-bottom: 2px solid  #17c43faf;
   }

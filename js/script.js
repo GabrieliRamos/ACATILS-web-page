@@ -7,9 +7,6 @@ for (item of menuItems) {
     }
 }
 
-
-
-
 /* menu toggle */
 let show = true;
 

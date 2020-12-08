@@ -7,6 +7,7 @@
 body {
   font-family: "Poppins", sans-serif;
   overflow: hidden;
+  background-color:  #009a2125;
 }
 
 .container {
@@ -19,15 +20,15 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin-top: 15%;
+  margin-top: 10%;
 }
 
 form {
   width: 450px;
-  padding: 2.5rem 3rem;
+  padding: 2.5rem 2.5rem;
   border-radius: 25px;
-  background-color: #009a213b;
-  box-shadow: 2px 2px 9px #999999;
+  background-color: #009a211e;
+  box-shadow: 2px 2px 9px #999999b4;
 }
 
 .login-content img {
@@ -44,10 +45,10 @@ form {
 .input-block input {
   width: 100%;
   outline: none;
-  border: 1px solid #a1a1a1;
+  border: 1px solid  #99999965;
   background: none;
   padding: 0.9rem 1.2rem;
-  color: #555;
+  color: #999999;
   font-weight: 300;
   font-size: 1rem;
   letter-spacing: 0.5px;
