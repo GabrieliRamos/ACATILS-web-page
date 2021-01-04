@@ -9,4 +9,3 @@ form.addEventListener('submit', function(e) {
     // impede o envio do form
     e.preventDefault()
 });
-
