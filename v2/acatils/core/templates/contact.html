@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Contate-nos {% endblock %}
+{% block title_header %} Contato {% endblock %}
+{% block title_link %} Contato {% endblock %}
+
+{% block content %}
+<div class="container-contact">
+    <div class="form">
+        <div class="contact-info">
+            <h2>Onde estamos</h2>
+            <p class="text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
+                dolorum adipisci recusandae praesentium dicta!
+            </p>
+            
+            <div class="info">
+                <div class="information">
+                    <a href="mailto:acatils@gmail.com">
+                        <img src="{% static 'img/email.png' %}" class="icon" alt="E-mail" />
+                    </a>
+                    <p>acatils@gmail.com</p>
+                </div>
+                <div class="information">
+                    <a href="tel:554733332222">
+                        <img src="{% static 'img/phone.png' %}" class="icon" alt="Telefone" />
+                    </a>
+                    <p>(47) 3332 - 2233</p>
+                </div>
+                <div class="address">
+                    <div class="information">
+                        <img src="{% static 'img/map.png' %}" class="icon" alt="Endereço" />
+                        <p>Rua José Bonifácio, 378 - Estreito</p>
+                    </div>
+                    <div class="information">
+                        <img src="{% static 'img/city.png' %}" class="icon" alt="Cidade e Estado" />
+                        <p>Florianópolis, Santa Catarina</p>
+                    </div>
+                    <div class="information">
+                        <img src="{% static 'img/cep.png' %}" class="icon" alt="CEP" />
+                        <p>CEP: 88070-770</p>
+                    </div>
+                    <div class="social-media">
+                        <p>Siga-nos nas redes sociais:</p>
+                        <div class="social-icons">
+                            <a href="#">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://twitter.com/acatils">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+            <div id="map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3536.0908184674936!2d-48.590760984449496!3d-27.590713828467077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x952737da063a1455%3A0xfbfb92effbf582e4!2sR.%20Jos%C3%A9%20Bonif%C3%A1cio%2C%20378%20-%20Estreito%2C%20Florian%C3%B3polis%20-%20SC%2C%2088070-770!5e0!3m2!1spt-BR!2sbr!4v1606607488654!5m2!1spt-BR!2sbr"
+                    width="100%" height="220px" frameborder="0" style="border:0;" allowfullscreen=""
+                    aria-hidden="false" tabindex="0"></iframe>
+            </div>
+        </div>
+
+        <div class="contact-form">
+            <form  autocomplete="off" id="contact_form">
+                <h2 class="title">Contate-nos</h2>
+                <div class="input-container">
+                    <input type="text" name="name" class="input" placeholder="Nome" />
+                </div>
+                <div class="input-container">
+                    <input type="email" name="email" class="input" placeholder="E-mail" />
+                </div>
+                <div class="input-container">
+                    <input type="text" name="assunto" class="input" placeholder="Assunto" />
+                </div>
+                <div class="input-container textarea">
+                    <textarea name="message" class="input" placeholder="Mensagem"></textarea>
+                </div>
+                <input type="submit" value="Enviar" class="btn" id="btnSubmit" />
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
