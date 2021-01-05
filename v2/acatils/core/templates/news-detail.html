@@ -1,0 +1,49 @@
+{% extends 'news-base.html' %}
+{% load static %}
+
+{% block title %} {{ news.title }} {%endblock %}
+{% block title_header %} {{ news.title }} {%endblock %}
+{% block breadcrumbs %} {{ news.title }} {% endblock %}
+
+
+{% block content %}
+<!-- Terms Content -->
+<div class="ex-basic-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <div class="text-container">
+                    <h3></h3>
+                    <p>{{ news.text }}</p>
+                </div> <!-- end of text-container -->
+
+                {%if news.img %}
+                    <div style="text-align: center;">
+                        <img src="/media/{{ news.img }}" alt="">
+                    </div>
+                {% endif%}
+                
+                <div class="text-container">
+                    <p>Compartilhe nas redes sociais:</p>
+                    <p>
+                        <a target="_blank" href="https://www.facebook.com/sharer.php?u={{ news.get_absolute_url }}"><img class="social-icon" src="{% static 'img/facebook.svg' %}" alt=""></a>
+                        <a target="_blank" href="https://twitter.com/share?url={{ news.get_absolute_url }}"><img class="social-icon" src="{% static 'img/twitter.svg' %}" alt=""></a>
+                        <a target="_blank" href="https://api.whatsapp.com/send?text={{ news.title}} {{ news.get_absolute_url }}"><img class="social-icon" src="{% static 'img/whatsapp.svg' %}" alt=""></a>
+                    </p>
+                </div> <!-- end of text-container -->
+
+                <div class="text-container">
+                    <p><div class="category" style="background-color: {{ news.category.color }};">{{ news.category }}</div></p>
+                </div> <!-- end of text-container -->
+                
+                <div class="text-container last">
+                    <h6>Publicado em {{ news.created }}</h6>
+                    <h6>Por {{ news.author }}</h6>
+                    <a class="btn-outline-reg" href="#" onclick="history.back()">VOLTAR</a>
+                </div> <!-- end of text-container -->
+            </div>
+        </div> <!-- end of row -->
+    </div> <!-- end of container -->
+</div> <!-- end of ex-basic -->
+<!-- end of terms content -->
+{% endblock %}

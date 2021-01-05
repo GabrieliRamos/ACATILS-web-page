@@ -3,7 +3,7 @@
 {% include 'meta-tags.html' %}
 
 <!-- Website Title -->
-<title>Notícias | ACATILS </title>
+<title>{% block title %} {%endblock %}| ACATILS </title>
 
 {% include 'link-imports.html' %}
 
@@ -11,10 +11,19 @@
     p {
         font-size: 1rem;
     }
-
-        {% block css %}
-
-        {% endblock %}
+    .category {
+        font-weight: 700;
+        width: 15%;
+        text-align: center;
+        border-radius: 22px;
+    }
+    .social-icon {
+        width: 32px;
+    }
+    .social-icon:hover {
+        transition: ease .3s;
+        opacity: .7;
+    }
 </style>
 </head>
 
@@ -25,7 +34,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Notícias</h1>
+                    <h1>{% block title_header %} {%endblock %}</h1>
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
         </div> <!-- end of container -->
@@ -39,7 +48,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumbs">
-                        <a href="{% url 'index' %}">Home</a> >> <span>Notícias</span>
+                        <a href="{% url 'index' %}">Home</a> >> <span>{% block breadcrumbs %} {% endblock %}</span>
                     </div> <!-- end of breadcrumbs -->
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
