@@ -3,7 +3,7 @@
 
 {% block title %} {{ news.title }} {%endblock %}
 {% block title_header %} {{ news.title }} {%endblock %}
-{% block breadcrumbs %} {{ news.title }} {% endblock %}
+{% block breadcrumbs %} <a href="{% url 'news' %}">Notícias</a> >> <span>{{ news.title }}</span> {% endblock %}
 
 
 {% block content %}
