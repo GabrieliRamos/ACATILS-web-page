@@ -312,7 +312,7 @@ select {
 	-ms-appearance: none;
     -o-appearance: none;
     appearance: none;
-    background-image: url('../images/down-arrow.png');
+    background-image: url('/static/img/down-arrow.png');
     background-position: 96% 50%;
     background-repeat: no-repeat;
     outline: none;
@@ -1535,7 +1535,7 @@ a.back-to-top {
 	width: 2.625rem;
 	height: 2.625rem;
 	border-radius: 1.875rem;
-	background: #09c236 url("../images/up-arrow.png") no-repeat center 47%;
+	background: #09c236 url("/static/img/up-arrow.png") no-repeat center 47%;
 	background-size: 1.125rem 1.125rem;
 	text-indent: -9999px;
 }
@@ -1654,8 +1654,8 @@ a:hover.back-to-top {
 	.slider-1 .slider-container {
 		padding-right: 3.5rem;
 		padding-left: 3.5rem;
-	}
-	/* end of customers */
+	} */
+	/* end of customers
 
 
 	/* Video */

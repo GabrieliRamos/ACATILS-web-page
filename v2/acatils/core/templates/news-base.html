@@ -1,0 +1,57 @@
+{% load static %}
+
+{% include 'meta-tags.html' %}
+
+<!-- Website Title -->
+<title>Notícias | ACATILS </title>
+
+{% include 'link-imports.html' %}
+
+<style>
+    p {
+        font-size: 1rem;
+    }
+
+        {% block css %}
+
+        {% endblock %}
+</style>
+</head>
+
+{% include 'navbar.html' %}
+
+    <!-- Header -->
+    <header id="header" class="ex-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Notícias</h1>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </header> <!-- end of ex-header -->
+    <!-- end of header -->
+
+
+    <!-- Breadcrumbs -->
+    <div class="ex-basic-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumbs">
+                        <a href="{% url 'index' %}">Home</a> >> <span>Notícias</span>
+                    </div> <!-- end of breadcrumbs -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of ex-basic-1 -->
+    <!-- end of breadcrumbs -->
+
+    {% block content %}
+    {% endblock %}
+
+    <!-- Footer -->
+    {% include 'footer.html' %}
+    <!-- end of footer -->
+
+
