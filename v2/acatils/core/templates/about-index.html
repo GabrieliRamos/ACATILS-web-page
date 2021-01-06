@@ -1,3 +1,4 @@
+{% load static %}
 <div id="services" class="cards-1">
     <div class="container">
         <div class="row">
@@ -15,7 +16,7 @@
 
                 <!-- Card -->
                 <div class="card">
-                    <img class="card-image" src="images/services-icon-1.svg" alt="alternative">
+                    <img class="card-image" style="width: 45px;" src="{% static 'img/mission.svg' %}" alt="Missão">
                     <div class="card-body">
                         <h4 class="card-title">Missão</h4>
                         <p>
@@ -30,7 +31,7 @@
 
                 <!-- Card -->
                 <div class="card">
-                    <img class="card-image" src="images/services-icon-2.svg" alt="alternative">
+                    <img class="card-image" style="width: 45px;" src="{% static 'img/vision.svg' %}" alt="Visão">
                     <div class="card-body">
                         <h4 class="card-title">Visão</h4>
                         <p>
@@ -44,7 +45,7 @@
 
                 <!-- Card -->
                 <div class="card">
-                    <img class="card-image" src="images/services-icon-3.svg" alt="alternative">
+                    <img class="card-image" style="width: 75px;" src="{% static 'img/values.svg' %}" alt="Valores">
                     <div class="card-body">
                         <h4 class="card-title">Valores</h4>
                         <p>

@@ -40,7 +40,67 @@ Colors:
 - Text headers, navbar links - black #393939
 - Text body - black #626262
 ******************************************/
+.social-icon {
+	width: 32px;
+}
+.social-icon:hover {
+	transition: ease .3s;
+	opacity: .7;
+}
 
+.search-footer {
+	padding: 1rem 0 0 0;
+  }
+  
+  .input-f {
+	padding: .3rem .5rem;
+	background-color: transparent;
+	border: 2px solid #222121dc;
+	font-size: 1rem;
+	border-radius: 25px;
+	outline: none;
+	width: 15rem;
+  }
+  
+  .input-f::-webkit-input-placeholder {
+	font-size: 1rem;
+	font-weight: 300;
+  }
+  
+  .input-f:-moz-placeholder {
+	/* Firefox 18- */
+	font-size: 1rem;
+	font-weight: 300;
+  }
+  
+  .input-f::-moz-placeholder {
+	/* Firefox 19+ */
+	font-size: 1rem;
+	font-weight: 300;
+  }
+  
+  .input-f:-ms-input-placeholder {
+	color: rgb(163, 163, 163);
+	font-size: 1rem;
+	font-weight: 300;
+  }
+  
+  .btn-f {
+	border: none;
+	background: none;
+  }
+  
+  .search-footer button i {
+	color: #c9c9c9;
+	width: 32px;
+	height: 32px;
+	transition: ease 0.3s;
+	cursor: pointer;
+  }
+  
+  .search-footer button i:hover {
+	transform: scale(1.1);
+  }
 
 /******************************/
 /*     01. General Styles     */
@@ -821,6 +881,13 @@ input[type='checkbox'] {
 	border: 1px solid #c4d8dc;
 	border-radius: 0.5rem;
 	background: transparent;
+}
+
+.card-image:hover {
+	cursor: pointer;
+	transition: ease .3s;
+	opacity: .8;
+	transform: scale(1.1);
 }
 
 .cards-1 .card-image {
