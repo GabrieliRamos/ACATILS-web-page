@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.contrib import messages
+from django.utils import timezone
 from django.views.generic import TemplateView, FormView
 
 from .models import News
@@ -12,7 +13,7 @@ class IndexView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
-        context['news'] = News.objects.order_by('created').all()
+        context['news'] = News.objects.order_by('-created').all()
         return context
 
 
@@ -21,7 +22,7 @@ class NewsView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(NewsView, self).get_context_data(**kwargs)
-        context['news'] = News.objects.order_by('created').all()
+        context['news'] = News.objects.order_by('-created').all()
         return context
 
 
@@ -30,7 +31,7 @@ class NewsDetailView(TemplateView):
 
     def get_context_data(self, slug, **kwargs):
         context = super(NewsDetailView, self).get_context_data(**kwargs)
-        context['news'] = News.objects.order_by('created').get(slug=slug)
+        context['news'] = News.objects.get(slug=slug)
         return context
 
 

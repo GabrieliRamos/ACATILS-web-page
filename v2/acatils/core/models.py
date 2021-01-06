@@ -1,6 +1,9 @@
 import uuid
+
 from django.db import models
 from django.urls import reverse
+from django.utils import timezone
+
 from stdimage.models import StdImageField
 
 #SIGNALS
@@ -14,8 +17,8 @@ def get_file_path(_instance, filename):
 
 
 class Base(models.Model):
-    created = models.DateField('Criado em: ', auto_now_add=True)
-    modified = models.DateField('Modificado em:', auto_now=True)
+    created = models.DateTimeField('Criado em:',default=timezone.now)
+    modified = models.DateTimeField('Modificado em:', auto_now=True)
 
     class Meta:
         abstract = True
