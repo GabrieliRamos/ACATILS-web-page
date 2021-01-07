@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.contrib import messages
 from django.utils import timezone
+
 from django.views.generic import TemplateView, FormView
 
 from .models import News
@@ -9,7 +10,6 @@ from .forms import ContactForm
 
 class IndexView(TemplateView):
     template_name='index.html'
-
 
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)

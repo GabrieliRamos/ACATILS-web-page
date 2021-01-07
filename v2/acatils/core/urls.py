@@ -13,6 +13,7 @@ urlpatterns = [
     path('valores-de-referencia', TemplateView.as_view(template_name="reference-values.html"), name='reference-values'),
 
     path('contato', ContactView.as_view(), name='contact'),
+    
     path('noticias', NewsView.as_view(), name='news'),
     re_path(r'^noticias/(?P<slug>[\w-]+)/$', NewsDetailView.as_view(), name='news-details'),
 ]

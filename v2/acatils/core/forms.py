@@ -8,7 +8,6 @@ class ContactForm(forms.Form):
     subject = forms.CharField(label='Assunto', max_length=100)
     message = forms.CharField(label='Mensagem', widget=forms.Textarea())
 
-
     def send_mail(self):
         name = self.cleaned_data['name']
         email = self.cleaned_data['email']
