@@ -69,7 +69,7 @@
         </div>
 
         <div class="contact-form">
-            <form  action="{% url 'contact' %}" method="post" autocomplete="on" id="contact_form">
+            <form  action="{% url 'contact' %}" method="post" autocomplete="off" id="contact_form">
                 {% csrf_token %}
                 <h2 class="title">Contate-nos</h2>
                 <div class="input-container">

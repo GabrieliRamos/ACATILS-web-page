@@ -4,12 +4,15 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="footer-col">
-                            <div class="search-footer">
-                                <input type="text" name="search" placeholder="Pesquisar no site" class="input-f" autocomplete="off">
-                                <button type="submit" class="btn-f">
-                                    <img style="width: 17px;" class="social-icon" src="{% static 'img/search.svg'%}" alt="Pesquisar no site">
-                                </button>
-                            </div>
+                            <form action="{% url 'search' %}"method="get" autocomplete="off">
+                                {% csrf_token %}
+                                    <div class="search-footer">
+                                        <input type="text" name="search" placeholder="Pesquisar no site" class="input-f" autocomplete="off">
+                                        <button type="submit" class="btn-f">
+                                            <img style="width: 17px;" class="social-icon" src="{% static 'img/search.svg'%}" alt="Pesquisar no site">
+                                        </button>
+                                    </div>
+                            </form>
                         </div>
                     </div> <!-- end of col -->
                     <div class="col-md-4">
@@ -29,7 +32,7 @@
                                 </li>
                             </ul>
                         </div>
-                    </div> <!-- end of col -->
+                     </div><!-- end of col -->
                     <div class="col-md-4">
                         <div class="footer-col last">
                             <h4>Mídias Sociais</h4>

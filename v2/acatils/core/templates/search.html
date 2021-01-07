@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Resultados da busca por {{ search }}{% endblock %}
+{% block title_header %} Resultados da busca por {{ search }} {% endblock %}
+{% block title_link %} Resultados da busca por {{ search }} {% endblock %}
+
+
+{% block content %}
+    {% if news %}
+        {% for n in news %}
+        <div class="search-news">
+                <h3><a href="{{ n.get_absolute_url }}">{{ n.title }}</a></h3>
+                <p>{{ n.text|slice:'0:300' }} ...</p>
+                <div class="infos">
+                    <p>
+                        Publicado em  <strong>  {{ n.created }}</strong>, por {{ n.author }}
+                            <div class="category" style="background-color: {{ n.category.color }};">{{ n.category }}</div>
+                    </p>
+                </div>
+        </div>
+
+        {% endfor %}
+    {% else %}
+    <h4>Desculpe, nós não encontramos nenhum resultado para sua busca por "{{ search }}".</h4>
+    <h5>Tente buscar por outra palavra-chave:</h5>
+    <form action="{% url 'search' %}"method="get" autocomplete="off">
+        {% csrf_token %}
+            <div class="search-footer" >
+                <input type="text" name="search" placeholder="Pesquisar no site" class="input-f" autocomplete="off">
+                <button type="submit" class="btn-f">
+                    <img style="width: 17px;" class="social-icon" src="{% static 'img/search.svg'%}" alt="Pesquisar no site">
+                </button>
+            </div>
+    </form>
+    {% endif %}
+{% endblock %}

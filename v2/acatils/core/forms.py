@@ -23,5 +23,5 @@ class ContactForm(forms.Form):
             to =('eduarda.bt@aluno.ifsc.edu.br', ),
            headers={'Reply-To': email},
         )
-
         mail.send()
+

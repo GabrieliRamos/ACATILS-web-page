@@ -48,3 +48,18 @@ class ContactView(FormView):
     def form_invalid(self, form, *args, **kwargs):
         messages.error(self.request, 'Erro ao enviar!')
         return super(ContactView, self).form_invalid(form, *args, **kwargs)
+
+
+def search(request):
+    search = request.GET.get('search')
+
+    if search:
+        obj = News.objects.filter(title__icontains=search)
+        return render(request, 'search.html', {'news': obj, 'search': search })
+    else:
+        return render(request, 'index.html')
+        
+
+
+    
+

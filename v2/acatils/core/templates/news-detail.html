@@ -31,14 +31,15 @@
                         <a target="_blank" href="https://api.whatsapp.com/send?text={{ news.title}} {{ news.get_absolute_url }}"><img class="social-icon" src="{% static 'img/whatsapp.svg' %}" alt=""></a>
                     </p>
                 </div> <!-- end of text-container -->
-
-                <div class="text-container">
-                    <p><div class="category" style="background-color: {{ news.category.color }};">{{ news.category }}</div></p>
-                </div> <!-- end of text-container -->
                 
                 <div class="text-container last">
-                    <h6>Publicado em {{ news.created }}</h6>
-                    <h6>Por {{ news.author }}</h6>
+                    <div class="infos">
+                        <div>
+                            <h6>Publicado em {{ news.created }}</h6>
+                            <h6>Por {{ news.author }}</h6>
+                        </div>
+                        <div class="category" style="background-color: {{ news.category.color }};">{{ news.category }}</div>
+                    </div>
                     <a class="btn-outline-reg" href="#" onclick="history.back()">VOLTAR</a>
                 </div> <!-- end of text-container -->
             </div>
