@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} {{ category }} {% endblock %}
+{% block title_header %} {{ category }} {% endblock %}
+{% block breadcrumbs %} <a href="{% url 'index' %}">Home</a> >> <span> {{ category }} </span> {% endblock %}
+
+{% block content %}
+    {% if news.category.description %}
+        <p>{{ news.category.description }}</p>
+    {% endif %}
+
+    {% for n in news %}
+        {% include 'list-news.html' %}
+    {% endfor %}
+
+{% endblock %}

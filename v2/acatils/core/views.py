@@ -2,10 +2,11 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.contrib import messages
 from django.utils import timezone
+from django.template.defaultfilters import slugify
 
 from django.views.generic import TemplateView, FormView
 
-from .models import News
+from .models import News, Categories
 from .forms import ContactForm
 
 class IndexView(TemplateView):
@@ -49,6 +50,16 @@ class ContactView(FormView):
     def form_invalid(self, form, *args, **kwargs):
         messages.error(self.request, 'Erro ao enviar!')
         return super(ContactView, self).form_invalid(form, *args, **kwargs)
+
+
+class CategoriesView(TemplateView):
+    template_name = 'categories.html'
+
+    def get_context_data(self, slug, **kwargs):
+        context = super(CategoriesView, self).get_context_data(**kwargs)
+        context['category'] = Categories.objects.get(slug=slug)
+        context['news'] = News.objects.filter(category__slug=slug).order_by('-created')
+        return context
 
 
 def search(request):

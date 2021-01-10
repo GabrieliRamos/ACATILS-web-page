@@ -28,6 +28,7 @@ class Categories(Base):
     category = models.CharField('Categoria', max_length=100)
     description = models.TextField('Descrição', max_length=700, blank=True)
     color = models.CharField('Cor', max_length=7)
+    slug = models.SlugField('Slug', blank=True, editable=False, max_length=1000)
 
     class Meta:
         verbose_name = 'Categoria'
@@ -35,6 +36,9 @@ class Categories(Base):
 
     def __str__(self):
         return self.category
+
+    def get_absolute_url(self):
+        return reverse('categories', kwargs={'slug': self.slug})
 
 
 class News(Base):
@@ -55,8 +59,12 @@ class News(Base):
     def get_absolute_url(self):
         return reverse('news-details', kwargs={'slug': self.slug})
 
+
+def categories_pre_save(signal, instance, sender, **kwargs):
+    instance.slug = slugify(instance.category)
+
 def news_pre_save(signal, instance, sender, **kwargs):
     instance.slug = slugify(instance.title)
 
-
+signals.pre_save.connect(categories_pre_save, sender=Categories)
 signals.pre_save.connect(news_pre_save, sender=News)

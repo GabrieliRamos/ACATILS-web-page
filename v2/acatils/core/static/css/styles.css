@@ -84,6 +84,10 @@ Colors:
   line-height: 1.5;
 }
 
+.infos a {
+  text-decoration: none;
+}
+
 /******************************/
 /*     01. Search footer     */
 /******************************/
