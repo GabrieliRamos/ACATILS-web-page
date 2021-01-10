@@ -1,4 +1,4 @@
-{% extends 'news-base.html'%}
+{% extends 'base.html'%}
 {% load static %}
 
 {% block title %} Notícias {%endblock %}
@@ -6,52 +6,7 @@
 {% block breadcrumbs %} <a href="{% url 'index' %}">Home</a> >> <span>Notícias</span> {% endblock %}
 
 {% block content %}
-<!-- News -->
-<div id="about" class="basic-4">
-    <div class="container">
-        <!-- news -->
-        <div class="basic-1">
-            <div class="container">
-                <div class="row">
-
                     {% for n in news %}
-                            <!-- news 1 -->
-                            <div class="col-lg-6">
-                                <div class="text-container">
-                                    <h4>{{ n.title }}</h4>
-                                    <p>{{ n.text|slice:'0:150' }}...</p>
-                                    <p style="color: black;">Pubicado em {{ n.created }}</p>
-                                    <a class="btn-solid-reg" href="{{ n.get_absolute_url }}">Ver Mais</a>
-                                </div> <!-- end of text-container -->
-                            </div> <!-- end of col -->
-                            <!-- end of news 1 -->
+                        {% include 'list-news.html' %}
                     {% endfor %}
-
-
-                </div> <!-- end of row -->
-            </div> <!-- end of container -->
-        </div> <!-- end of basic-1 -->
-        <!-- end of news -->
-
-     <!-- Details 2 -->
-    <div class="basic-2">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="image-container">
-                        <img class="img-fluid" src="images/details-2-office-team-work.svg" alt="alternative">
-                    </div> <!-- end of image-container -->
-                </div> <!-- end of col -->
-                <div class="col-lg-6">
-                    <div class="text-container">
-                        <h2>Search For Optimization Wherever Is Possible</h2>
-                        <p>Use our staff and our expertise to design and plan your business growth strategy. Evolo team is eager to advise you on the best opportunities that you should look into</p>
-                        <a class="btn-solid-reg popup-with-move-anim" href="">Ver Mais</a>
-                    </div> <!-- end of text-container -->
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of basic-2 -->
-    <!-- end of details 2 -->
-
 {% endblock %}

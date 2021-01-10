@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block title %} Legislação {% endblock %} 
 {% block title_header %} Legislação {% endblock %} 
-{% block title_link %} Legislação {% endblock %} 
+{% block breadcrumbs %} <a href="{% url 'index' %}">Home</a> >> <span> Legislação </span> {% endblock %}
 
 {% block css %} 
   h2 { 

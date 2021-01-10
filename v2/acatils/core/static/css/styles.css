@@ -39,6 +39,8 @@ Colors:
 - Text headers, navbar links - black #393939
 - Text body - black #626262
 ******************************************/
+
+
 .social-icon {
   width: 32px;
 }
@@ -59,19 +61,27 @@ Colors:
 
   width: 17%;
   border-radius: 22px;
-  height: 4%;
+  height: 3%;
 }
 
 /******************************/
 /*     01. Search page     */
 /******************************/
-.search-news {
+.list-news,
+.related-news {
     margin-top: 3em;
 }
 
 .infos {
     display: flex;
     justify-content: space-between;
+}
+
+.infos span {
+  font-weight: 600;
+  font-size: .8rem;
+  text-transform: uppercase;
+  line-height: 1.5;
 }
 
 /******************************/

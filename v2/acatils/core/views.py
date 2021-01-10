@@ -32,6 +32,7 @@ class NewsDetailView(TemplateView):
     def get_context_data(self, slug, **kwargs):
         context = super(NewsDetailView, self).get_context_data(**kwargs)
         context['news'] = News.objects.get(slug=slug)
+        context['related_news'] = News.objects.filter(category=context['news'].category).order_by('-created')
         return context
 
 

@@ -3,23 +3,13 @@
 
 {% block title %} Resultados da busca por {{ search }}{% endblock %}
 {% block title_header %} Resultados da busca por {{ search }} {% endblock %}
-{% block title_link %} Resultados da busca por {{ search }} {% endblock %}
+{% block breadcrumbs %} <a href="{% url 'index' %}">Home</a> >> <span> Resultados da busca</span> {% endblock %}
 
 
 {% block content %}
     {% if news %}
         {% for n in news %}
-        <div class="search-news">
-                <h3><a href="{{ n.get_absolute_url }}">{{ n.title }}</a></h3>
-                <p>{{ n.text|slice:'0:300' }} ...</p>
-                <div class="infos">
-                    <p>
-                        Publicado em  <strong>  {{ n.created }}</strong>, por {{ n.author }}
-                            <div class="category" style="background-color: {{ n.category.color }};">{{ n.category }}</div>
-                    </p>
-                </div>
-        </div>
-
+            {% include 'list-news.html' %}
         {% endfor %}
     {% else %}
     <h4>Desculpe, nós não encontramos nenhum resultado para sua busca por "{{ search }}".</h4>
