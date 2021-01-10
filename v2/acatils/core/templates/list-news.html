@@ -1,8 +1,10 @@
 <div class="list-news">
-        <h5><a href="{{ n.get_absolute_url }}">{{ n.title }}</a></h5>
+        <h4><a href="{{ n.get_absolute_url }}">{{ n.title }}</a></h4>
         <p>{{ n.text|slice:'0:300' }} ...</p>
         <div class="infos">
             <p>Publicado em  <strong>  {{ n.created }}</strong>, por {{ n.author }}</p>
-            <span class="category" style="color: {{ n.category.color }};">{{ n.category }}</span>
+            <a href="">
+                <span class="category" style="color: {{ n.category.color }};">{{ n.category }}</span>
+            </a>
         </div>
 </div>
