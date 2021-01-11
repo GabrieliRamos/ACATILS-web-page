@@ -57,11 +57,12 @@ Colors:
   font-weight: 300;
   text-align: center;
   color: #fff;
-  letter-spacing: 1.5;
+  font-size: .8rem;
 
-  width: 17%;
+  width: 19%;
   border-radius: 22px;
-  height: 3%;
+  height: 4%;
+  white-space: nowrap;
 }
 
 /******************************/
@@ -86,6 +87,12 @@ Colors:
 
 .infos a {
   text-decoration: none;
+  color: #fff;
+}
+
+.infos a:hover{
+  color: #fff;
+  transform: scale(1.1);
 }
 
 /******************************/
@@ -216,7 +223,7 @@ a {
 }
 
 a:hover {
-  color: #09c236;
+  color: #00ac2b;
   text-decoration: underline;
 }
 
