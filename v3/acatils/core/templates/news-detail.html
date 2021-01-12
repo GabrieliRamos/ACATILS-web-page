@@ -23,24 +23,34 @@
                 {% endif %}
                 
                 <div class="text-container">
-                    <p>Compartilhe nas redes sociais:</p>
-                    <p>
-                        <a target="_blank" href="https://www.facebook.com/sharer.php?u={{ news.get_absolute_url }}"><img class="social-icon" src="{% static 'img/facebook.svg' %}" alt=""></a>
-                        <a target="_blank" href="https://twitter.com/share?url={{ news.get_absolute_url }}"><img class="social-icon" src="{% static 'img/twitter.svg' %}" alt=""></a>
-                        <a target="_blank" href="https://api.whatsapp.com/send?text={{ news.title}} {{ news.get_absolute_url }}"><img class="social-icon" src="{% static 'img/whatsapp.svg' %}" alt=""></a>
-                    </p>
+                    <div class="share-social-media">
+                        <div>
+                            <p>Compartilhe nas redes sociais:</p>
+                        </div>
+                        <div>
+                            <p>
+                                <a target="_blank" href="https://www.facebook.com/sharer.php?u={{ news.get_absolute_url }}"><img class="social-icon" src="{% static 'img/facebook.svg' %}" alt=""></a>
+                                <a target="_blank" href="https://twitter.com/share?url={{ news.get_absolute_url }}"><img class="social-icon" src="{% static 'img/twitter.svg' %}" alt=""></a>
+                                <a target="_blank" href="https://api.whatsapp.com/send?text={{ news.title}} {{ news.get_absolute_url }}"><img class="social-icon" src="{% static 'img/whatsapp.svg' %}" alt=""></a>
+                            </p>
+                        </div>
+                    </div>
                 </div> <!-- end of text-container -->
+
+                <div class="text-container">
+                    <div class="infos">
+                        <div>Categoria:</div>
+                        <div class="category" style="background-color: {{ news.category.color }};">
+                            <a href="{{ news.category.get_absolute_url }}">{{ news.category }} </a>
+                        </div> 
+                    </div>
+                </div>
                 
                 <div class="text-container last">
-                    <div class="infos">
                         <div>
                             <h6>Publicado em {{ news.created }}</h6>
                             <h6>Por {{ news.author }}</h6>
                         </div>
-                        <div class="category" style="background-color: {{ news.category.color }};">
-                                <a href="{{ news.category.get_absolute_url }}">{{ news.category }} </a>
-                        </div>                     
-                    </div>
                     <a class="btn-outline-reg" href="#" onclick="history.back()">VOLTAR</a>
                 </div> <!-- end of text-container -->
                 <div class="text-container related-news">
@@ -53,6 +63,8 @@
                         {% endfor %}
                     {% endif %}
                 </div> <!-- end of text-container -->
+
+
             </div>
         </div> <!-- end of row -->
     </div> <!-- end of container -->

@@ -59,10 +59,16 @@ Colors:
   color: #fff;
   font-size: .8rem;
 
-  width: 19%;
+  width: 150px;
   border-radius: 22px;
   height: 4%;
-  white-space: nowrap;
+  margin-left: 5px;
+}
+
+.share-social-media {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 /******************************/
@@ -75,7 +81,8 @@ Colors:
 
 .infos {
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+    justify-content: flex-start;
 }
 
 .infos span {
@@ -1764,6 +1771,7 @@ a:hover.back-to-top {
 /* Min-width width 768px */
 @media (min-width: 768px) {
   /* General Styles */
+
   .p-heading {
     width: 85%;
     margin-right: auto;
