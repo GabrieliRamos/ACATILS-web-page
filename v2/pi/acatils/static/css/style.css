@@ -1,0 +1,300 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
+
+html {
+  /* a cada 1rem será considera 10px */
+  font-size: 62.5%;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: "Roboto", serif;
+}
+
+body {
+  font-size: 1.6rem;
+  color: #555;
+}
+
+header {
+  width: 100%;
+  /* position: fixed; */
+  background-color: #ffffff;
+}
+
+.menu-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 95%;
+  margin: auto;
+  border-bottom: 1px inset rgb(216, 216, 216);
+}
+
+header img:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+header img {
+  width: 180px;
+  padding: 5px 0 0;
+}
+
+header nav ul {
+  display: flex;
+}
+
+header nav ul li {
+  list-style: none;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: rgb(70, 70, 70);
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 1.3rem;
+  padding: 1rem;
+  transition: all 0.1s ease-out;
+}
+
+header nav ul li a.active {
+  color: #31af11;
+  font-weight: 400;
+}
+
+header nav ul li a:hover {
+  color: rgb(138, 1, 1);
+}
+
+main .container {
+  width: 60%;
+  margin: auto;
+}
+
+.title-wrapper {
+  background-color: #31a24c;
+  width: 100%;
+  padding: 3rem 0;
+}
+
+.title-wrapper h1 {
+  color: white;
+  font-size: 3.2rem;
+  padding: 10rem;
+  text-align: center;
+}
+
+/* QUEM SOMOS */
+main .about-content {
+  margin-top: 5rem;
+}
+
+.about-content p {
+  margin-top: 2rem;
+}
+
+/* PERGUNTAS FREQUENTES */
+
+.common-questions-container {
+  color: #555;
+  text-align: justify;
+  margin: auto;
+}
+
+.common-questions-container h2 {
+  font-size: 2rem;
+  padding: 5rem 0 3rem 0;
+  font-weight: 300;
+  color:#31af11;
+}
+
+.common-questions-container p {
+  font-size: 1.8rem;
+  line-height: 3rem;
+  font-weight: 300;
+}
+
+/* LEGISLAÇÃO */
+
+.legislation h2 {
+  margin-top: 2rem;
+}
+
+.legislation h2:first-child {
+  margin-top: 5.5rem;
+}
+
+.documents a,
+.legislation h2 a {
+  text-decoration: none;
+  font-weight: 300;
+  font-size: 1.9rem;
+  color: #31af11;
+}
+
+.documents a:hover,
+.legislation h2 a:hover {
+  transition: 0.2s ease;
+  color:  #1f720b;
+}
+
+.legislation p {
+  line-height: 2;
+  font-size: 1.8rem;
+  font-weight: 300;
+  margin-top: .5rem;
+}
+
+/* DOCUMENTOS */
+
+.documents {
+  font-size: 1.8rem;
+  line-height: 1.5;
+  color:#444;
+}
+
+.documents p {
+  display: inline;
+  font-weight: 300;
+}
+
+.documents h2 {
+  font-weight: 600;
+  font-size: 1.9rem;
+  padding: 2rem 0 0 0;
+}
+
+.documents:first-child{
+  margin-top: 3rem;
+}
+
+.documents-item {
+  margin: 2rem 0;
+}
+
+.declarations a {
+  display: block;
+  margin: 2rem 0 2rem 0;
+}
+
+.declarations a:hover {
+  opacity: 0.7;
+  transition: 0.2s ease;
+}
+
+
+/* scrollbar */
+::-webkit-scrollbar-track {
+  background-color: #f4f4f4;
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #c7c7c7;
+  border-radius: 10px;
+}
+
+.map {
+  margin-bottom: 0;
+}
+
+@media (max-width: 810px) {
+  nav {
+    display: none;
+  }
+
+  main .container {
+    width: 90%;
+    margin: auto;
+  }
+
+  .one,
+  .two,
+  .three {
+    background-color: #555;
+    height: 2.2px;
+    border-radius: 10px;
+    width: 60%;
+    margin: 5px auto;
+    transition-duration: 0.3s;
+  }
+
+  .menu-toggle {
+    width: 40px;
+    height: 30px;
+  }
+
+  .menu-toggle:hover {
+    cursor: pointer;
+  }
+
+  /* fullscreen */
+  .menu-section.on {
+    position: absolute;
+    top: 0px;
+    left: 0;
+
+    width: 100vw;
+    height: 55vh;
+
+    background: none;
+
+    z-index: 10;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .menu-section.on nav {
+    border-bottom: 1px solid rgba(85, 85, 85, 0.301);
+    display: block;
+    background-color: #ffffff;
+    width: 100vw;
+  }
+
+  .menu-section.on .menu-toggle {
+    position: absolute;
+    right: 25px;
+    top: 15px;
+  }
+
+  .menu-section.on .menu-toggle .one {
+    transform: rotate(45deg) translate(7px, 7px);
+  }
+
+  .menu-section.on .menu-toggle .two {
+    opacity: 0;
+  }
+
+  .menu-section.on .menu-toggle .three {
+    transform: rotate(-45deg) translate(2.2px, -3px);
+  }
+
+  .menu-section.on nav ul {
+    padding: 2rem;
+    display: block;
+  }
+
+  .menu-section.on nav ul a {
+    font-size: 1.3rem;
+    line-height: 4rem;
+    display: block;
+  }
+
+}
+
+/* atribuição img contato
+<a href='https://br.freepik.com/vetores/fundo'>Fundo vetor criado por rawpixel.com - br.freepik.com</a> */

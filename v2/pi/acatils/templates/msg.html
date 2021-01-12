@@ -1,0 +1,18 @@
+{% extends 'admin-base.html' %}
+
+{% block title %} Mensagens {% endblock %}
+
+  {% block content %}
+
+    <section>
+        {% for msg in mensagens %}
+      <br>
+            <h1>Assunto: {{ msg.assunto }}</h1>
+            <h2>Autor: {{ msg.nome }}</h2>
+            <h3>E-mail: {{ msg.email }}</h3>
+            <p>Mensagem: {{ msg.mensagem }}</p>
+      <br>
+      <hr>
+        {% endfor %}
+    </section>
+  {% endblock %}

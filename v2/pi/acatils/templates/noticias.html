@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+  {% block title %} Notícias {% endblock %}
+
+  {% block content %}
+      <div class="title-wrapper">
+        <h1>NOTÍCIAS</h1>
+      </div>
+
+      <div class="notices container-notices">
+        {% for noticia in noticias %}
+        <div class="card-content">
+          <div class="card-content__img">
+            <img src="../images/noticiai.jpg" alt="" />
+          </div>
+          <div class="card-content__info">
+            <div class="card-content__date">
+              <span>{{ noticia.criado_em }}</span>
+            </div>
+            <h1 class="card-content__title">{{ noticia.titulo }}</h1>
+            <p class="card-content__text">
+              A Federação Brasileira das Associações dos Profissionais
+              Tradutores e Intérpretes e Guiaintérpretes de Língua de Sinais –
+              FEBRAPILS, por meio do seu Grupo de Trabalho...
+            </p>
+            <a href="{% url 'noticia' noticia.id %}" class="card-content__cta">Ler mais</a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    {% endblock %}
