@@ -95,6 +95,13 @@ Colors:
   transform: scale(1.1);
 }
 
+.search-not-found {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
 /******************************/
 /*     01. Search footer     */
 /******************************/

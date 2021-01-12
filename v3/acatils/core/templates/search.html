@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %} Resultados da busca por {{ search }}{% endblock %}
-{% block title_header %} Resultados da busca por {{ search }} {% endblock %}
+{% block title_header %} Resultados da busca por "{{ search }}" {% endblock %}
 {% block breadcrumbs %} <a href="{% url 'index' %}">Home</a> >> <span> Resultados da busca</span> {% endblock %}
 
 
@@ -16,11 +16,13 @@
     <h5>Tente buscar por outra palavra-chave:</h5>
     <form action="{% url 'search' %}"method="get" autocomplete="off">
         {% csrf_token %}
-            <div class="search-footer" >
-                <input type="text" name="search" placeholder="Pesquisar no site" class="input-f" autocomplete="off">
-                <button type="submit" class="btn-f">
-                    <img style="width: 17px;" class="social-icon" src="{% static 'img/search.svg'%}" alt="Pesquisar no site">
-                </button>
+        <div class="search-not-found">
+                <div class="search-footer" >
+                    <input type="text" name="search" placeholder="Pesquisar no site" class="input-f" autocomplete="off">
+                    <button type="submit" class="btn-f">
+                        <img style="width: 17px;" class="social-icon" src="{% static 'img/search.svg'%}" alt="Pesquisar no site">
+                    </button>
+                </div>
             </div>
     </form>
     {% endif %}
