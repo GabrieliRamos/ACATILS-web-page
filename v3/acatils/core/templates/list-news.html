@@ -1,7 +1,7 @@
 <div class="list-news">
         <h4><a href="{{ n.get_absolute_url }}">{{ n.title }}</a></h4>
         <p>{{ n.text|slice:'0:300' }} ...</p>
-        <div class="infos">
+        <div class="infos-flex">
             <p>Publicado em  <strong>  {{ n.created }}</strong>, por {{ n.author }}</p>
             <a href="{{ n.category.get_absolute_url }}">
                 <span class="category" style="color: {{ n.category.color }};">{{ n.category }}</span>
