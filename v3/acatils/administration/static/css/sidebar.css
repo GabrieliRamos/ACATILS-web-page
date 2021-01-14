@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 :root{
   --nav-width: 92px;
 
@@ -87,7 +91,7 @@ a{
   column-gap: .75rem;
   padding: .75rem;
   color: var(--white-color);
-  border-radius: .5rem;
+  border-radius: 1.2rem;
   margin-bottom: 1rem;
   transition: .3s;
   cursor: pointer;
@@ -114,7 +118,7 @@ a{
 
 /*Active links menu*/
 .active{
-  transition: ease .1s;
+  transition: all .1s;
   background-color: var(--first-color);
 }
 
