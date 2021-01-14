@@ -10,13 +10,16 @@
  .content-table {
     border-collapse: collapse;
     margin: 0;
-    padding: 0;
     width: 100%;
     table-layout: fixed;
     font-size: 0.9em;
-
-    border-radius: 5px 5px 100px 0;
+    border-radius: 5px 5px 0 0;
+    overflow:hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+    -webkit-border-radius: 5px 5px 0 0;
+       -moz-border-radius: 5px 5px 0 0;
+            border-radius: 5px 5px 0 0;
   }
 
   .content-table thead tr {
@@ -30,12 +33,6 @@
     margin: .5em 0 .75em;
   }
   
-  /* .content-table tr {
-    background-color: #f8f8f8;
-    border: 1px solid #ddd;
-    padding: .35em;
-  } */
-  
   .content-table th,
   .content-table td {
     padding:  1.1em 1.2em;
@@ -43,7 +40,14 @@
   }
   
   .content-table tbody tr {
-      border-bottom: 1px solid var(--sub-color)
+      border-bottom: 1px solid var(--sub-color);
+      transition: all .2s;
+  }
+
+  .content-table tbody tr:hover {
+      cursor: pointer;
+      font-weight: bold;
+      color: var(--bg-color);
   }
 
   .content-table tbody tr:nth-of-type(even) {
