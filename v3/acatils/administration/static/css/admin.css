@@ -8,8 +8,6 @@ html {
     font-family: "Raleway", sans-serif;
 }
 
-
-
 :root{
   
     --first-color: #0C5DF4;
@@ -18,18 +16,41 @@ html {
     --text-color:  #393939;
 }
 
-.teste {
-    display: flex;
-    flex-direction: row;
+.input {
+    padding: .7rem;
+    margin: 1rem; 
+
+    border-radius: 18px;
+    border: 2px solid #dbdbdbe0;
+
+    width: 60%;
+    outline: none;
+
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 0.9rem;
+
+}
+
+.input::placeholder {
+    color: #3939398f;
+}
+
+.input:focus {
+    border: 2px solid #c0c0c0e0;
+}
+
+.icon {
+    width: 20px;
 }
 
 .container {
     width: 85%;
     height: 100%;
-    position: absolute;
     right: 5%;
     top: 0;
     
+    position: absolute;
     display: flex;
     flex-direction: column;
 }

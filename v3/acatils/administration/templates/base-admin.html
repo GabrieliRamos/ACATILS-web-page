@@ -13,7 +13,7 @@
     <title>| ACATILS</title>
 </head>
 <body>
-    <div class="teste">
+    <div class="all-content">
         <div class="l-navbar" id="navbar">
             <nav class="nav">
             <div>
@@ -83,20 +83,17 @@
             </a>
             </nav>
         </div>
+    </div>
+
+    
 
         <div class="container">
 
-                <a class="btn-news-register" href="">
-                    <div class="flex-box">
-                    <!-- <img src="{% static 'img/plus.svg' %}" alt=""> -->
-                    <span>Cadastrar notícia</span>
-                </div>
-                </a>
-
-                {% include 'table-news.html' %}
+                {% block content %} {% endblock %}
 
         </div>
-    </div>
+
+    
 
 
       <script src="{% static 'js/sidebar.js' %}"></script>

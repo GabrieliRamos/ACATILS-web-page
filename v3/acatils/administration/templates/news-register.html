@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="{% url 'news-register' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="title" id="">
+        <input type="radio" name="category" id="" value="op1">Ação Institucional
+        <input type="radio" name="category" id="" value="op2">Legislação e Normas
+        <input type="image" src="" name="img" alt="">
+        <input type="text" name="text" id="">
+        <input type="text" name="author" id="">
+        <button type="submit"></button>
+    </form>
+</body>
+</html>
