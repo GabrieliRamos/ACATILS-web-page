@@ -3,7 +3,7 @@ from django.urls import reverse_lazy
 
 from django.views.generic import TemplateView, FormView
 
-from core.models import News
+from core.models import News, Categories
 from .forms import NewsRegisterForm
 
 
@@ -22,7 +22,8 @@ class NewsRegisterView(FormView):
     success_url = reverse_lazy('dashboard-news')
 
     def form_valid(self, form, *args, **kwargs):
-        form.save_news()
+        print(form)
+        form.save()
         return super(NewsRegisterView, self).form_valid(form, *args, **kwargs)
 
     def form_invalid(self, form, *args, **kwargs):

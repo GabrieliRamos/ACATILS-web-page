@@ -73,16 +73,16 @@
                 {% csrf_token %}
                 <h2 class="title">Contate-nos</h2>
                 <div class="input-container">
-                    <input type="text" name="name" class="input" placeholder="Nome" />
+                    <input type="text" name="name" class="input" placeholder="Nome" required />
                 </div>
                 <div class="input-container">
-                    <input type="email" name="email" class="input" placeholder="E-mail" />
+                    <input type="email" name="email" class="input" placeholder="E-mail" required />
                 </div>
                 <div class="input-container">
-                    <input type="text" name="subject" class="input" placeholder="Assunto" />
+                    <input type="text" name="subject" class="input" placeholder="Assunto"required />
                 </div>
                 <div class="input-container textarea">
-                    <textarea name="message" class="input" placeholder="Mensagem"></textarea>
+                    <textarea name="message" class="input" placeholder="Mensagem" required></textarea>
                 </div>
                 <input type="submit" value="Enviar" class="btn" id="btnSubmit" />
             </form>

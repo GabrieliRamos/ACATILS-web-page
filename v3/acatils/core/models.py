@@ -17,8 +17,8 @@ def get_file_path(_instance, filename):
 
 
 class Base(models.Model):
-    created = models.DateTimeField('Criado em:',default=timezone.now)
-    modified = models.DateTimeField('Modificado em:', auto_now=True)
+    created = models.DateTimeField('Criado em:',default=timezone.now, editable=False)
+    modified = models.DateTimeField('Modificado em:', auto_now=True, editable=False)
 
     class Meta:
         abstract = True

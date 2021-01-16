@@ -9,4 +9,4 @@ class CategoriesAdmin(admin.ModelAdmin):
 
 @admin.register(News)
 class NewsAdmin(admin.ModelAdmin):
-    list_display = ('title', 'category', 'author', 'created', 'modified')
+    list_display = ('title', 'category', 'author', 'created', 'modified', 'slug')
