@@ -1,10 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.contrib import messages
 from django.utils import timezone
+from django.core.paginator import Paginator
+
 from django.template.defaultfilters import slugify
 
-from django.views.generic import TemplateView, FormView
+from django.views.generic import TemplateView, FormView, ListView
+from django.views.generic.detail import DetailView
 
 from .models import News, Categories
 from .forms import ContactForm
@@ -14,26 +17,24 @@ class IndexView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
-        context['news'] = News.objects.order_by('-created').all()
+        context['news']  = News.objects.order_by('-created').all()
         return context
 
 
-class NewsView(TemplateView):
+class NewsView(ListView):
+    paginate_by = 5
+    model = News
     template_name = 'news.html'
 
+
+class NewsDetailView(DetailView):
+
+    template_name='news-detail.html'
+    model = News
+
     def get_context_data(self, **kwargs):
-        context = super(NewsView, self).get_context_data(**kwargs)
-        context['news'] = News.objects.order_by('-created').all()
-        return context
-
-
-class NewsDetailView(TemplateView):
-    template_name = 'news-detail.html'
-
-    def get_context_data(self, slug, **kwargs):
         context = super(NewsDetailView, self).get_context_data(**kwargs)
-        context['news'] = News.objects.get(slug=slug)
-        context['related_news'] = News.objects.filter(category=context['news'].category).order_by('-created')
+        context['related_news'] = News.objects.filter(category=context['object'].category).order_by('-created')
         return context
 
 
@@ -52,13 +53,18 @@ class ContactView(FormView):
         return super(ContactView, self).form_invalid(form, *args, **kwargs)
 
 
-class CategoriesView(TemplateView):
+class CategoriesView(ListView):
+    paginate_by = 3
+    model = News
     template_name = 'categories.html'
 
-    def get_context_data(self, slug, **kwargs):
+    def get_queryset(self, *args, **kwargs):
+        return News.objects.filter(category__slug=self.kwargs['slug'])
+
+    def get_context_data(self, **kwargs):
         context = super(CategoriesView, self).get_context_data(**kwargs)
-        context['category'] = Categories.objects.get(slug=slug)
-        context['news'] = News.objects.filter(category__slug=slug).order_by('-created')
+        context['category'] = Categories.objects.get(slug=self.kwargs ['slug'])
+        print(self.kwargs['slug'])
         return context
 
 
@@ -69,9 +75,5 @@ def search(request):
         obj = News.objects.filter(title__icontains=search)
         return render(request, 'search.html', {'news': obj, 'search': search })
     else:
-        return render(request, 'index.html')
+        return render(request, 'index')
         
-
-
-    
-

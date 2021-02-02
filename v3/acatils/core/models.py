@@ -52,6 +52,7 @@ class News(Base):
     class Meta:
         verbose_name = 'Notícia'
         verbose_name_plural = 'Notícias'
+        ordering = ('-created', )
 
     def __str__(self):
         return self.title

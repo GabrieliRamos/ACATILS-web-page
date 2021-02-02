@@ -18,7 +18,7 @@
         {% csrf_token %}
         <div class="search-not-found">
                 <div class="search-footer" >
-                    <input type="text" name="search" placeholder="Pesquisar no site" class="input-f" autocomplete="off">
+                    <input type="text" name="search" placeholder="Pesquisar no site" class="input-f" autocomplete="off" required>
                     <button type="submit" class="btn-f">
                         <img style="width: 17px;" class="social-icon" src="{% static 'img/search.svg'%}" alt="Pesquisar no site">
                     </button>

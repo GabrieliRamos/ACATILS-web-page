@@ -1,4 +1,5 @@
 from django import forms
+from django.views.generic import ListView
 from django.core.mail.message import EmailMessage
 
 
@@ -24,4 +25,5 @@ class ContactForm(forms.Form):
            headers={'Reply-To': email},
         )
         mail.send()
+
 

@@ -13,12 +13,12 @@
         <div class="row">
             <div class="col-lg-10 offset-lg-1">
                 <div class="text-container">
-                    <p>{{ news.text }}</p>
+                    <p>{{ object.text }}</p>
                 </div> <!-- end of text-container -->
 
-                {% if news.img %}
+                {% if object.img %}
                     <div style="text-align: center;">
-                        <img src="/media/{{ news.img }}" alt="">
+                        <img src="/media/{{ object.img }}" alt="">
                     </div>
                 {% endif %}
                 
@@ -29,9 +29,9 @@
                         </div>
                         <div>
                             <p>
-                                <a target="_blank" href="https://www.facebook.com/sharer.php?u={{ news.get_absolute_url }}"><img class="social-icon" src="{% static 'img/facebook.svg' %}" alt=""></a>
-                                <a target="_blank" href="https://twitter.com/share?url={{ news.get_absolute_url }}"><img class="social-icon" src="{% static 'img/twitter.svg' %}" alt=""></a>
-                                <a target="_blank" href="https://api.whatsapp.com/send?text={{ news.title}} {{ news.get_absolute_url }}"><img class="social-icon" src="{% static 'img/whatsapp.svg' %}" alt=""></a>
+                                <a target="_blank" href="https://www.facebook.com/sharer.php?u={{ object.get_absolute_url }}"><img class="social-icon" src="{% static 'img/facebook.svg' %}" alt=""></a>
+                                <a target="_blank" href="https://twitter.com/share?url={{ object.get_absolute_url }}"><img class="social-icon" src="{% static 'img/twitter.svg' %}" alt=""></a>
+                                <a target="_blank" href="https://api.whatsapp.com/send?text={{ object.title}} {{ object.get_absolute_url }}"><img class="social-icon" src="{% static 'img/whatsapp.svg' %}" alt=""></a>
                             </p>
                         </div>
                     </div>
@@ -40,31 +40,29 @@
                 <div class="text-container">
                     <div class="infos">
                         <div>Categoria:</div>
-                        <div class="category" style="background-color: {{ news.category.color }};">
-                            <a href="{{ news.category.get_absolute_url }}">{{ news.category }} </a>
+                        <div class="category" style="background-color: {{ object.category.color }};">
+                            <a href="{{ object.category.get_absolute_url }}">{{ object.category }} </a>
                         </div> 
                     </div>
                 </div>
                 
                 <div class="text-container last">
                         <div>
-                            <h6>Publicado em {{ news.created }}</h6>
-                            <h6>Por {{ news.author }}</h6>
+                            <h6>Publicado em {{ object.created }}</h6>
+                            <h6>Por {{ object.author }}</h6>
                         </div>
                     <a class="btn-outline-reg" href="#" onclick="history.back()">VOLTAR</a>
                 </div> <!-- end of text-container -->
                 <div class="text-container related-news">
-                    {% if related_news > 1 %}
+                    {% if related_news %}
                         <h4>Notícias relacionadas:</h4>
                         {% for n in related_news|slice:'0:3' %}
-                            {% if n.id != news.id %}
+                            <!-- {% if n.id != object.id %} -->
                                 {% include 'list-news.html' %}
-                            {% endif %}
+                            <!-- {% endif %} -->
                         {% endfor %}
                     {% endif %}
                 </div> <!-- end of text-container -->
-
-
             </div>
         </div> <!-- end of row -->
     </div> <!-- end of container -->
