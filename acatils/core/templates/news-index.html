@@ -19,7 +19,7 @@
                     <div class="col-lg-6">
                         <div class="text-container">
                             <h3>{{ n.title }}</h3>
-                            <p>{{ n.text|slice:'0:150'}} ...</p>
+                            <p>{{ n.text|slice:'0:150'| safe}} ...</p>
                             <a class="btn-solid-reg" href="{{ n.get_absolute_url }}">Ver Mais</a>
                         </div> <!-- end of text-container -->
                     </div> <!-- end of col -->

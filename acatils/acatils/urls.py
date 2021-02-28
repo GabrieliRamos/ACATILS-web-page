@@ -19,6 +19,9 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
+    path('grappelli/', include('grappelli.urls')), # grappelli URLS
+    path('tinymce/', include('tinymce.urls')), # tinymce URLS
+
     path('admin/', admin.site.urls),
     path('', include('core.urls')),
     path('', include('administration.urls')),

@@ -1,6 +1,6 @@
 <div class="list-news">
         <h4><a href="{{ n.get_absolute_url }}">{{ n.title }}</a></h4>
-        <p>{{ n.text|slice:'0:300' }} ...</p>
+        <p>{{ n.text|slice:'0:300'| safe }} ...</p>
         <div class="infos-flex">
             <p>Publicado em  <strong>  {{ n.created }}</strong>, por {{ n.author }}</p>
             <a href="{{ n.category.get_absolute_url }}">

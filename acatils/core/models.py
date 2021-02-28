@@ -5,6 +5,7 @@ from django.urls import reverse
 from django.utils import timezone
 
 from stdimage.models import StdImageField
+from tinymce.models import HTMLField
 
 #SIGNALS
 from django.db.models import signals
@@ -46,7 +47,7 @@ class News(Base):
     category = models.ForeignKey('core.Categories', verbose_name='Categoria', on_delete=models.CASCADE)
     img = StdImageField('Imagem', upload_to=get_file_path, variations={'thumb': {'width': 480, 'height': 480, 'crop': True}}, blank=True)
     author = models.CharField('Autor', max_length=200)
-    text = models.TextField('Texto')
+    text = HTMLField()
     slug = models.SlugField('Slug', blank=True, editable=False, max_length=1000) 
 
     class Meta:
