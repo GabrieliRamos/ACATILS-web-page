@@ -28,7 +28,7 @@ class Base(models.Model):
 class Categories(Base):
     category = models.CharField('Categoria', max_length=100)
     description = models.TextField('Descrição', max_length=700, blank=True)
-    color = models.CharField('Cor', max_length=7)
+    color = models.CharField('Cor (em hexadecimal)', max_length=7)
     slug = models.SlugField('Slug', blank=True, editable=False, max_length=1000)
 
     class Meta:
@@ -44,11 +44,11 @@ class Categories(Base):
 
 class News(Base):
     title = models.CharField('Título', max_length=300)
-    category = models.ForeignKey('core.Categories', verbose_name='Categoria', on_delete=models.CASCADE)
+    category = models.ForeignKey('core.Categories', verbose_name='Categoria', on_delete=models.CASCADE, default="")
     img = StdImageField('Imagem', upload_to=get_file_path, variations={'thumb': {'width': 480, 'height': 480, 'crop': True}}, blank=True)
-    author = models.CharField('Autor', max_length=200)
+    author = models.CharField('Autor', max_length=200, default='ACATILS')
     text = HTMLField()
-    slug = models.SlugField('Slug', blank=True, editable=False, max_length=1000) 
+    slug = models.SlugField('Slug', blank=True, editable=False, max_length=1000, unique=True) 
 
     class Meta:
         verbose_name = 'Notícia'
@@ -63,10 +63,28 @@ class News(Base):
 
 
 def categories_pre_save(signal, instance, sender, **kwargs):
-    instance.slug = slugify(instance.category)
+    if not instance.slug:
+        slug = slugify(instance.category)
+        new_slug = slug
+        count = 0
+
+        while Categories.objects.filter(slug=new_slug).exclude(id=instance.id).count() > 0:
+            count += 1
+            new_slug = '%s-%d'%(slug, count)
+
+        instance.slug = new_slug
 
 def news_pre_save(signal, instance, sender, **kwargs):
-    instance.slug = slugify(instance.title)
+        if not instance.slug:
+            slug = slugify(instance.title)
+            new_slug = slug
+            count = 0
+
+            while News.objects.filter(slug=new_slug).exclude(id=instance.id).count() > 0:
+                count += 1
+                new_slug = '%s-%d'%(slug, count)
+
+            instance.slug = new_slug
 
 signals.pre_save.connect(categories_pre_save, sender=Categories)
 signals.pre_save.connect(news_pre_save, sender=News)

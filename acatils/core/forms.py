@@ -25,5 +25,3 @@ class ContactForm(forms.Form):
            headers={'Reply-To': email},
         )
         mail.send()
-
-

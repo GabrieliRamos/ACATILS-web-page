@@ -6,6 +6,19 @@
 {% block breadcrumbs %} <a href="{% url 'index' %}">Home</a> >> <span> Contato </span> {% endblock %}
 
 {% block content %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                        <h6 class="alert-heading">{{ message }}</h6>
+                        <button type="button" class="close alert-heading" id="close-btn" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+            {% endfor %}
+        {% endif %}
+    
+      
+
 <div class="container" >
     <div class="form" id="form">
         <div class="contact-info">
@@ -42,7 +55,7 @@
                         <span>CEP: 88070-770</span>
                     </div>
                     <div class="social-media">
-                        <span>Siga-nos nas redes sociais:</span>
+                        <span>Acompanhe-nos nas redes sociais:</span>
                         <div class="social-icons">
                             <a href="#">
                                 <i class="fab fa-facebook-f"></i>
@@ -69,7 +82,7 @@
         </div>
 
         <div class="contact-form">
-            <form  action="{% url 'contact' %}" method="post" autocomplete="off" id="contact_form">
+            <form  action="{% url 'contact' %}" method="post" autocomplete="on" id="contact_form">
                 {% csrf_token %}
                 <h2 class="title">Contate-nos</h2>
                 <div class="input-container">

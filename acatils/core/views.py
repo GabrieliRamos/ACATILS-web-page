@@ -22,7 +22,7 @@ class IndexView(TemplateView):
 
 
 class NewsView(ListView):
-    paginate_by = 5
+    paginate_by = 10
     model = News
     template_name = 'news.html'
 
@@ -49,12 +49,12 @@ class ContactView(FormView):
         return super(ContactView, self).form_valid(form, *args, **kwargs)
 
     def form_invalid(self, form, *args, **kwargs):
-        messages.error(self.request, 'Erro ao enviar!')
+        messages.error(self.request, 'Erro ao enviar mensagem! Tente novamente.')
         return super(ContactView, self).form_invalid(form, *args, **kwargs)
 
 
 class CategoriesView(ListView):
-    paginate_by = 3
+    paginate_by = 10
     model = News
     template_name = 'categories.html'
 

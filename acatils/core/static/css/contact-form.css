@@ -1,4 +1,7 @@
-  
+  form {
+    padding: 2rem;
+  }
+
   .form {
     max-width: 80%;
     background-color: #fff;

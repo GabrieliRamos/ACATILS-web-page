@@ -54,9 +54,9 @@
                     <a class="btn-outline-reg" href="#" onclick="history.back()">VOLTAR</a>
                 </div> <!-- end of text-container -->
                 <div class="text-container related-news">
-                    {% if related_news %}
+                    {% if related_news.count > 1 %}
                         <h4>Notícias relacionadas:</h4>
-                        {% for n in related_news|slice:'0:3' %}
+                        {% for n in related_news|slice:'0:4' %}
                             <!-- {% if n.id != object.id %} -->
                                 {% include 'list-news.html' %}
                             <!-- {% endif %} -->
