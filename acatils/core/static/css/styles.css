@@ -29,6 +29,30 @@
   align-items: flex-end;
 }
 
+
+/******************************/
+/*     01. List news     */
+/******************************/
+.list-news {
+  display: flex;
+  flex-direction: row;
+}
+
+.list-news .img-news-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-news .img-news-content img {
+  border-radius: 5px;
+  width: 300px;
+  height: 250px;
+  margin: 1rem 0;
+  margin-right: 2rem;;
+}
+
+
 /******************************/
 /*     01. Search page     */
 /******************************/
@@ -53,7 +77,7 @@
   font-weight: 600;
   font-size: .8rem;
   text-transform: uppercase;
-  line-height: 1.5;
+  line-height: 1;
 }
 
 .infos .category a {
@@ -1743,8 +1767,29 @@ a:hover.back-to-top {
 /*     20. Media Queries     */
 /*****************************/
 /* Min-width width 768px */
+
+
+@media (max-width: 768px) {
+  .list-news {
+    flex-direction: column;
+  }
+  .list-news .img-news-content img {
+    width: 65vw;
+    margin: 2rem;
+  }
+}
+
+@media (max-width: 680px) {
+  .list-news .img-news-content img {
+    width: 75vw;
+    height: auto;
+  }
+}
+
+
 @media (min-width: 768px) {
   /* General Styles */
+
 
   .p-heading {
     width: 85%;

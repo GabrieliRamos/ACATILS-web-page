@@ -17,8 +17,10 @@
                 </div> <!-- end of text-container -->
 
                 {% if object.img %}
-                    <div style="text-align: center;">
-                        <img src="/media/{{ object.img }}" alt="">
+                    <div style="display: flex; justify-content: center; align-items: center; text-align: center; padding: 3rem;">
+                        <div>
+                            <img src="/media/{{ object.img }}" alt="" style="max-width:  65vw;">
+                        </div>
                     </div>
                 {% endif %}
                 
