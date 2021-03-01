@@ -74,17 +74,15 @@ class NewsSearchView(ListView):
     paginate_by = 10
     model = News
 
-    def get_queryset(self):
+    def get_queryset(self, *args, **kwargs):
         query = self.request.GET.get('search')
-        results = News.objects.filter( 
-                Q(title__icontains=query) |
-                Q(author__icontains=query) |
-                Q(text__icontains=query)
-            )
-        return results
-
+        return News.objects.filter( 
+                    Q(title__icontains=query) |
+                    Q(author__icontains=query) |
+                    Q(text__icontains=query)
+                )
+            
     def get_context_data(self, **kwargs):
         context = super(NewsSearchView, self).get_context_data(**kwargs)
         context['search'] = self.request.GET.get('search')
-        context['news'] = self.get_queryset()
         return context

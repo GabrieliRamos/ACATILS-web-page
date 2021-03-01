@@ -7,23 +7,26 @@
 
 
 {% block content %}
-    {% if news %}
-        {% for n in news %}
+    {% if page_obj %}
+        {% for n in page_obj %}
             {% include 'list-news.html' %}
         {% endfor %}
+
+        {% include 'pagination.html' %}
+
     {% else %}
-    <h4>Desculpe, nós não encontramos nenhum resultado para sua busca por "{{ search }}".</h4>
-    <h5>Tente buscar por outra palavra-chave:</h5>
-    <form action="{% url 'search' %}"method="get" autocomplete="off">
-        {% csrf_token %}
-        <div class="search-not-found">
-                <div class="search-footer" >
-                    <input type="text" name="search" placeholder="Pesquisar no site" class="input-f" maxlength="500" autocomplete="off" required>
-                    <button type="submit" class="btn-f">
-                        <img style="width: 17px;" class="social-icon" src="{% static 'img/search.svg'%}" alt="Pesquisar no site">
-                    </button>
+        <h4>Desculpe, nós não encontramos nenhum resultado para sua busca por "{{ search }}".</h4>
+        <h5>Tente buscar por outra palavra-chave:</h5>
+        <form action="{% url 'search' %}"method="get" autocomplete="off">
+            {% csrf_token %}
+            <div class="search-not-found">
+                    <div class="search-footer" >
+                        <input type="text" name="search" placeholder="Pesquisar no site" class="input-f" maxlength="500" autocomplete="off" required>
+                        <button type="submit" class="btn-f">
+                            <img style="width: 17px;" class="social-icon" src="{% static 'img/search.svg'%}" alt="Pesquisar no site">
+                        </button>
+                    </div>
                 </div>
-            </div>
-    </form>
+        </form>
     {% endif %}
 {% endblock %}
