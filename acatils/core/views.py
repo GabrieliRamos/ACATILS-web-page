@@ -3,6 +3,7 @@ from django.urls import reverse_lazy
 from django.contrib import messages
 from django.utils import timezone
 from django.core.paginator import Paginator
+from django.db.models import Q
 
 from django.template.defaultfilters import slugify
 
@@ -11,6 +12,7 @@ from django.views.generic.detail import DetailView
 
 from .models import News, Categories
 from .forms import ContactForm
+
 
 class IndexView(TemplateView):
     template_name='index.html'
@@ -28,7 +30,6 @@ class NewsView(ListView):
 
 
 class NewsDetailView(DetailView):
-
     template_name='news-detail.html'
     model = News
 
@@ -68,12 +69,22 @@ class CategoriesView(ListView):
         return context
 
 
-def search(request):
-    search = request.GET.get('search')
+class NewsSearchView(ListView):
+    template_name = 'search.html'
+    paginate_by = 10
+    model = News
 
-    if search:
-        obj = News.objects.filter(title__icontains=search)
-        return render(request, 'search.html', {'news': obj, 'search': search })
-    else:
-        return render(request, 'index')
-        
+    def get_queryset(self):
+        query = self.request.GET.get('search')
+        results = News.objects.filter( 
+                Q(title__icontains=query) |
+                Q(author__icontains=query) |
+                Q(text__icontains=query)
+            )
+        return results
+
+    def get_context_data(self, **kwargs):
+        context = super(NewsSearchView, self).get_context_data(**kwargs)
+        context['search'] = self.request.GET.get('search')
+        context['news'] = self.get_queryset()
+        return context

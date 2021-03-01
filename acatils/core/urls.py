@@ -2,7 +2,7 @@ from django.urls import path, re_path
 
 from django.views.generic import TemplateView
 
-from .views import IndexView, NewsView, NewsDetailView, ContactView, CategoriesView, search
+from .views import IndexView, NewsView, NewsDetailView, ContactView, CategoriesView, NewsSearchView
 
 urlpatterns = [
     path('', IndexView.as_view(), name='index'),
@@ -18,5 +18,5 @@ urlpatterns = [
     re_path(r'^noticias/(?P<slug>[\w-]+)/$', NewsDetailView.as_view(), name='news-details'),
     re_path(r'^categorias/(?P<slug>[\w-]+)/$', CategoriesView.as_view(), name='categories'),
 
-    path('search', search, name='search')
+    path('search', NewsSearchView.as_view(), name='search')
 ]

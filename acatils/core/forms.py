@@ -2,6 +2,8 @@ from django import forms
 from django.views.generic import ListView
 from django.core.mail.message import EmailMessage
 
+from .models import News
+
 
 class ContactForm(forms.Form):
     name = forms.CharField(label='Nome', max_length=100)
