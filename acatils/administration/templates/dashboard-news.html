@@ -1,0 +1,18 @@
+{% extends 'base-admin.html' %}
+{% load static %}
+
+{% block content %}
+    <a class="btn-news-register" href="{% url 'news-register' %}">
+        <span>Cadastrar notícia</span>
+    </a>
+
+        <div class="search-admin">
+            <form action="{% url 'search_admin' %}" method="get">
+                {% csrf_token %}
+                <input type="text" placeholder="Buscar notícia" name="search_admin" class="input">
+            </form>
+            <!-- <img src="{% static 'img/search.svg' %}" alt="Buscar" class="icon"> -->
+        </div>
+    {% include 'table.html' %}
+
+{% endblock %}

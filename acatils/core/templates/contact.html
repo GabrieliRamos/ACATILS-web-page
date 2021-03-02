@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Contate-nos {% endblock %}
+{% block title_header %} Contato {% endblock %}
+{% block breadcrumbs %} <a href="{% url 'index' %}">Home</a> >> <span> Contato </span> {% endblock %}
+
+{% block content %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                        <h6 class="alert-heading">{{ message }}</h6>
+                        <button type="button" class="close alert-heading" id="close-btn" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+            {% endfor %}
+        {% endif %}
+    
+      
+
+<div class="container" >
+    <div class="form" id="form">
+        <div class="contact-info">
+            <h2>Onde estamos</h2>
+            <p class="text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
+                dolorum adipisci recusandae praesentium dicta!
+            </p>
+
+            <div class="info">
+                <div class="information">
+                    <a href="mailto:acatils@gmail.com">
+                        <img src="{% static 'img/email.png' %}" class="icon" alt="E-mail" />
+                    </a>
+                    <span>acatils@gmail.com</span>
+                </div>
+                <div class="information">
+                    <a href="tel:554733332222">
+                        <img src="{% static 'img/phone.png' %}" class="icon" alt="Telefone" />
+                    </a>
+                    <span>(47) 3332 - 2233</span>
+                </div>
+                <div class="address">
+                    <div class="information">
+                        <img src="{% static 'img/map.png' %}" class="icon" alt="Endereço" />
+                        <span>Rua José Bonifácio, 378 - Estreito</span>
+                    </div>
+                    <div class="information">
+                        <img src="{% static 'img/city.png' %}" class="icon" alt="Cidade e Estado" />
+                        <span>Florianópolis, Santa Catarina</span>
+                    </div>
+                    <div class="information">
+                        <img src="{% static 'img/cep.png' %}" class="icon" alt="CEP" />
+                        <span>CEP: 88070-770</span>
+                    </div>
+                    <div class="social-media">
+                        <span>Acompanhe-nos nas redes sociais:</span>
+                        <div class="social-icons">
+                            <a href="#">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://twitter.com/acatils">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div id="map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3536.0908184674936!2d-48.590760984449496!3d-27.590713828467077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x952737da063a1455%3A0xfbfb92effbf582e4!2sR.%20Jos%C3%A9%20Bonif%C3%A1cio%2C%20378%20-%20Estreito%2C%20Florian%C3%B3polis%20-%20SC%2C%2088070-770!5e0!3m2!1spt-BR!2sbr!4v1606607488654!5m2!1spt-BR!2sbr"
+                    width="100%" height="220px" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+                    tabindex="0"></iframe>
+            </div> -->
+        </div>
+
+        <div class="contact-form">
+            <form  action="{% url 'contact' %}" method="post" autocomplete="on" id="contact_form">
+                {% csrf_token %}
+                <h2 class="title">Contate-nos</h2>
+                <div class="input-container">
+                    <input type="text" name="name" class="input" placeholder="Nome" required />
+                </div>
+                <div class="input-container">
+                    <input type="email" name="email" class="input" placeholder="E-mail" required />
+                </div>
+                <div class="input-container">
+                    <input type="text" name="subject" class="input" placeholder="Assunto"required />
+                </div>
+                <div class="input-container textarea">
+                    <textarea name="message" class="input" placeholder="Mensagem" required></textarea>
+                </div>
+                <input type="submit" value="Enviar" class="btn" id="btnSubmit" />
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+<div class="list-news">
+    {% if n.img %}
+        <div class="img-news-content">
+            <img src="/media/{{ n.img }}"  alt="">
+        </div>
+    {% endif %}
+
+    <div class="news-content">
+        <h4><a href="{{ n.get_absolute_url }}">{{ n.title }}</a></h4>
+        <p>{{ n.text|slice:'0:300'| safe }} ...</p>
+        <div class="infos-flex"
+            {% if  n.img %}
+                style="flex-direction: column; margin-left: 0px;"
+            {% endif %}
+        >
+            <p>Publicado em  <strong>  {{ n.created }}</strong> <br>  Por {{ n.author }}</p>
+            <a href="{{ n.category.get_absolute_url }}">
+                <span class="category" style="color: {{ n.category.color }};">{{ n.category }}</span>
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} {{ news.title }} {% endblock %}
+{% block title_header %} {{ news.title }} {% endblock %}
+{% block breadcrumbs %} <a href="{% url 'news' %}">Notícias</a> >> <span> {{ news.title }}</span> {% endblock %}
+
+
+{% block content %}
+
+{% if object.translation %}
+    <iframe id="iframe-translate" width="560" height="315" src="https://www.youtube.com/embed/{{ object.translation }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+{% endif %}
+
+<!-- Terms Content -->
+<div class="ex-basic-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <div class="text-container">
+                    <p>{{ object.text| safe }}</p>
+                </div> <!-- end of text-container -->
+
+                {% if object.img %}
+                    <div style="display: flex; justify-content: center; align-items: center; text-align: center; padding: 3rem;">
+                        <div>
+                            <img src="/media/{{ object.img }}" alt="" style="max-width:  75vw;">
+                        </div>
+                    </div>
+                {% endif %}
+                
+                <div class="text-container">
+                    <div class="share-social-media">
+                        <div>
+                            <p>Compartilhe nas redes sociais:</p>
+                        </div>
+                        <div>
+                            <p>
+                                <a target="_blank" href="https://www.facebook.com/sharer.php?u={{ object.get_absolute_url }}"><img class="social-icon" src="{% static 'img/facebook.svg' %}" alt=""></a>
+                                <a target="_blank" href="https://twitter.com/share?url={{ object.get_absolute_url }}"><img class="social-icon" src="{% static 'img/twitter.svg' %}" alt=""></a>
+                                <a target="_blank" href="https://api.whatsapp.com/send?text={{ object.title}} {{ object.get_absolute_url }}"><img class="social-icon" src="{% static 'img/whatsapp.svg' %}" alt=""></a>
+                            </p>
+                        </div>
+                    </div>
+                </div> <!-- end of text-container -->
+
+                <div class="text-container">
+                    <div class="infos">
+                        <div>Categoria:</div>
+                        <div class="category" style="background-color: {{ object.category.color }};">
+                            <a href="{{ object.category.get_absolute_url }}">{{ object.category }} </a>
+                        </div> 
+                    </div>
+                </div>
+                
+                <div class="text-container last">
+                        <div>
+                            <h6>Publicado em {{ object.created }}</h6>
+                            <h6>Por {{ object.author }}</h6>
+                        </div>
+                    <a class="btn-outline-reg" href="#" onclick="history.back()">VOLTAR</a>
+                </div> <!-- end of text-container -->
+                <div class="text-container related-news">
+                    {% if related_news.count > 1 %}
+                        <h4>Notícias relacionadas:</h4>
+                        {% for n in related_news|slice:'0:4' %}
+                            <!-- {% if n.id != object.id %} -->
+                                {% include 'list-news.html' %}
+                            <!-- {% endif %} -->
+                        {% endfor %}
+                    {% endif %}
+                </div> <!-- end of text-container -->
+            </div>
+        </div> <!-- end of row -->
+    </div> <!-- end of container -->
+</div> <!-- end of ex-basic -->
+<!-- end of terms content -->
+{% endblock %}

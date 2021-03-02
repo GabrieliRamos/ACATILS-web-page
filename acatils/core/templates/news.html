@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block title %} Notícias {%endblock %}
+{% block title_header %} Notícias {%endblock %}
+{% block breadcrumbs %} <a href="{% url 'index' %}">Home</a> >> <span>Notícias</span> {% endblock %}
+
+{% block content %}
+                    {% for n in page_obj %}
+                        {% include 'list-news.html' %}
+                    {% endfor %}
+
+                    {% include 'pagination.html' %}
+
+{% endblock %}
