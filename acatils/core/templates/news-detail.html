@@ -1,12 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %} {{ news.title }} {%endblock %}
-{% block title_header %} {{ news.title }} {%endblock %}
+{% block title %} {{ news.title }} {% endblock %}
+{% block title_header %} {{ news.title }} {% endblock %}
 {% block breadcrumbs %} <a href="{% url 'news' %}">Notícias</a> >> <span> {{ news.title }}</span> {% endblock %}
 
 
 {% block content %}
+
+{% if object.translation %}
+    <iframe id="iframe-translate" width="560" height="315" src="https://www.youtube.com/embed/{{ object.translation }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+{% endif %}
+
 <!-- Terms Content -->
 <div class="ex-basic-2">
     <div class="container">
@@ -19,7 +24,7 @@
                 {% if object.img %}
                     <div style="display: flex; justify-content: center; align-items: center; text-align: center; padding: 3rem;">
                         <div>
-                            <img src="/media/{{ object.img }}" alt="" style="max-width:  65vw;">
+                            <img src="/media/{{ object.img }}" alt="" style="max-width:  75vw;">
                         </div>
                     </div>
                 {% endif %}

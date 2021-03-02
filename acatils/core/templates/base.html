@@ -48,6 +48,13 @@
 
 
 <div class="ex-basic-2">
+    {% if object.translation %}
+    <button id="translate-text" onclick="ShowIframe()">
+        <div id="icon-translate-container">
+            <img id="translate-icon" src="{% static 'img/libras-icon.png' %}">
+        </div>
+    </button>
+    {% endif %}
     <div class="container">
         <div class="row">
             <div class="col-lg-10 offset-lg-1">

@@ -48,7 +48,8 @@ class News(Base):
     img = StdImageField('Imagem', upload_to=get_file_path, variations={'thumb': {'width': 480, 'height': 480, 'crop': True}}, blank=True)
     author = models.CharField('Autor', max_length=200, default='ACATILS')
     text = HTMLField()
-    slug = models.SlugField('Slug', blank=True, editable=False, max_length=1000, unique=True) 
+    slug = models.SlugField('Slug', blank=True, editable=False, max_length=1000, unique=True)
+    translation = models.TextField('Tradução para LIBRAS (link YouTube)', blank=True)
 
     class Meta:
         verbose_name = 'Notícia'
@@ -73,8 +74,10 @@ def categories_pre_save(signal, instance, sender, **kwargs):
             new_slug = '%s-%d'%(slug, count)
 
         instance.slug = new_slug
+        
 
 def news_pre_save(signal, instance, sender, **kwargs):
+        # slug
         if not instance.slug:
             slug = slugify(instance.title)
             new_slug = slug
@@ -85,6 +88,11 @@ def news_pre_save(signal, instance, sender, **kwargs):
                 new_slug = '%s-%d'%(slug, count)
 
             instance.slug = new_slug
+
+            # embed youtube
+            embed = instance.translation.split('v=')[-1]
+            print(embed)
+            instance.translation = embed
 
 signals.pre_save.connect(categories_pre_save, sender=Categories)
 signals.pre_save.connect(news_pre_save, sender=News)
