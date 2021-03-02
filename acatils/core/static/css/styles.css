@@ -1755,6 +1755,10 @@ input[type="checkbox"] {
   margin-bottom: 2.25rem;
 }
 
+.footer .footer-col a{
+  text-decoration: none;
+}
+
 .footer h4 {
   margin-bottom: 1rem;
 }
