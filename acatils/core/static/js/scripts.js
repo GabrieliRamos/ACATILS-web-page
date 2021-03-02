@@ -93,6 +93,38 @@
     });
     
 
+    /* Video Lightbox - Magnific Popup */
+    $('.popup-youtube, .popup-vimeo').magnificPopup({
+        disableOn: 700,
+        type: 'iframe',
+        mainClass: 'mfp-fade',
+        removalDelay: 160,
+        preloader: false,
+        fixedContentPos: false,
+        iframe: {
+            patterns: {
+                youtube: {
+                    index: 'youtube.com/', 
+                    id: function(url) {        
+                        var m = url.match(/[\\?\\&]v=([^\\?\\&]+)/);
+                        if ( !m || !m[1] ) return null;
+                        return m[1];
+                    },
+                    src: 'https://www.youtube.com/embed/%id%?autoplay=1'
+                },
+                vimeo: {
+                    index: 'vimeo.com/', 
+                    id: function(url) {        
+                        var m = url.match(/(https?:\/\/)?(www.)?(player.)?vimeo.com\/([a-z]*\/)*([0-9]{6,11})[?]?.*/);
+                        if ( !m || !m[5] ) return null;
+                        return m[5];
+                    },
+                    src: 'https://player.vimeo.com/video/%id%?autoplay=1'
+                }
+            }
+        }
+    });
+
 
     /* Lightbox - Magnific Popup */
 	$('.popup-with-move-anim').magnificPopup({
@@ -108,8 +140,188 @@
 	});
     
     
+    /* Move Form Fields Label When User Types */
+    // for input and textarea fields
+    $("input, textarea").keyup(function(){
+		if ($(this).val() != '') {
+			$(this).addClass('notEmpty');
+		} else {
+			$(this).removeClass('notEmpty');
+		}
+    });
 
 
+    /* Request Form */
+    $("#requestForm").validator().on("submit", function(event) {
+    	if (event.isDefaultPrevented()) {
+            // handle the invalid form...
+            rformError();
+            rsubmitMSG(false, "Please fill all fields!");
+        } else {
+            // everything looks good!
+            event.preventDefault();
+            rsubmitForm();
+        }
+    });
+
+    function rsubmitForm() {
+        // initiate variables with form content
+		var name = $("#rname").val();
+		var email = $("#remail").val();
+		var phone = $("#rphone").val();
+        var select = $("#rselect").val();
+        var terms = $("#rterms").val();
+        
+        $.ajax({
+            type: "POST",
+            url: "php/requestform-process.php",
+            data: "name=" + name + "&email=" + email + "&phone=" + phone + "&select=" + select + "&terms=" + terms, 
+            success: function(text) {
+                if (text == "success") {
+                    rformSuccess();
+                } else {
+                    rformError();
+                    rsubmitMSG(false, text);
+                }
+            }
+        });
+	}
+
+    function rformSuccess() {
+        $("#requestForm")[0].reset();
+        rsubmitMSG(true, "Request Submitted!");
+        $("input").removeClass('notEmpty'); // resets the field label after submission
+    }
+
+    function rformError() {
+        $("#requestForm").removeClass().addClass('shake animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+            $(this).removeClass();
+        });
+	}
+
+    function rsubmitMSG(valid, msg) {
+        if (valid) {
+            var msgClasses = "h3 text-center tada animated";
+        } else {
+            var msgClasses = "h3 text-center";
+        }
+        $("#rmsgSubmit").removeClass().addClass(msgClasses).text(msg);
+    }
+    
+
+    /* Contact Form */
+    $("#contactForm").validator().on("submit", function(event) {
+    	if (event.isDefaultPrevented()) {
+            // handle the invalid form...
+            cformError();
+            csubmitMSG(false, "Please fill all fields!");
+        } else {
+            // everything looks good!
+            event.preventDefault();
+            csubmitForm();
+        }
+    });
+
+    function csubmitForm() {
+        // initiate variables with form content
+		var name = $("#cname").val();
+		var email = $("#cemail").val();
+        var message = $("#cmessage").val();
+        var terms = $("#cterms").val();
+        $.ajax({
+            type: "POST",
+            url: "php/contactform-process.php",
+            data: "name=" + name + "&email=" + email + "&message=" + message + "&terms=" + terms, 
+            success: function(text) {
+                if (text == "success") {
+                    cformSuccess();
+                } else {
+                    cformError();
+                    csubmitMSG(false, text);
+                }
+            }
+        });
+	}
+
+    function cformSuccess() {
+        $("#contactForm")[0].reset();
+        csubmitMSG(true, "Message Submitted!");
+        $("input").removeClass('notEmpty'); // resets the field label after submission
+        $("textarea").removeClass('notEmpty'); // resets the field label after submission
+    }
+
+    function cformError() {
+        $("#contactForm").removeClass().addClass('shake animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+            $(this).removeClass();
+        });
+	}
+
+    function csubmitMSG(valid, msg) {
+        if (valid) {
+            var msgClasses = "h3 text-center tada animated";
+        } else {
+            var msgClasses = "h3 text-center";
+        }
+        $("#cmsgSubmit").removeClass().addClass(msgClasses).text(msg);
+    }
+
+
+    /* Privacy Form */
+    $("#privacyForm").validator().on("submit", function(event) {
+    	if (event.isDefaultPrevented()) {
+            // handle the invalid form...
+            pformError();
+            psubmitMSG(false, "Please fill all fields!");
+        } else {
+            // everything looks good!
+            event.preventDefault();
+            psubmitForm();
+        }
+    });
+
+    function psubmitForm() {
+        // initiate variables with form content
+		var name = $("#pname").val();
+		var email = $("#pemail").val();
+        var select = $("#pselect").val();
+        var terms = $("#pterms").val();
+        
+        $.ajax({
+            type: "POST",
+            url: "php/privacyform-process.php",
+            data: "name=" + name + "&email=" + email + "&select=" + select + "&terms=" + terms, 
+            success: function(text) {
+                if (text == "success") {
+                    pformSuccess();
+                } else {
+                    pformError();
+                    psubmitMSG(false, text);
+                }
+            }
+        });
+	}
+
+    function pformSuccess() {
+        $("#privacyForm")[0].reset();
+        psubmitMSG(true, "Request Submitted!");
+        $("input").removeClass('notEmpty'); // resets the field label after submission
+    }
+
+    function pformError() {
+        $("#privacyForm").removeClass().addClass('shake animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+            $(this).removeClass();
+        });
+	}
+
+    function psubmitMSG(valid, msg) {
+        if (valid) {
+            var msgClasses = "h3 text-center tada animated";
+        } else {
+            var msgClasses = "h3 text-center";
+        }
+        $("#pmsgSubmit").removeClass().addClass(msgClasses).text(msg);
+    }
+    
 
     /* Back To Top Button */
     // create the back to top button

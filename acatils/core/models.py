@@ -88,7 +88,7 @@ def news_pre_save(signal, instance, sender, **kwargs):
                 new_slug = '%s-%d'%(slug, count)
 
             instance.slug = new_slug
-            
+         
 
 signals.pre_save.connect(categories_pre_save, sender=Categories)
 signals.pre_save.connect(news_pre_save, sender=News)
