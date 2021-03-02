@@ -88,6 +88,8 @@
   font: 700 0.75rem/0 "Raleway", sans-serif;
   transition: all 0.2s;
 
+  top: 60%;
+
   z-index: 10000;
   position: fixed;
   float: right;
@@ -1919,7 +1921,9 @@ a:hover.back-to-top {
     width: 65vw;
     margin: 2rem;
   }
-}
+  #iframe-translate {
+    width: 47vw;
+  }
 
 @media (max-width: 680px) {
   .list-news .img-news-content img {
