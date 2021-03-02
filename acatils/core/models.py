@@ -88,11 +88,7 @@ def news_pre_save(signal, instance, sender, **kwargs):
                 new_slug = '%s-%d'%(slug, count)
 
             instance.slug = new_slug
-
-            # embed youtube
-            embed = instance.translation.split('v=')[-1]
-            print(embed)
-            instance.translation = embed
+            
 
 signals.pre_save.connect(categories_pre_save, sender=Categories)
 signals.pre_save.connect(news_pre_save, sender=News)
