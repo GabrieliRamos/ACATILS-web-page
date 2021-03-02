@@ -1,3 +1,76 @@
+/******************************/
+/*     01. Paginator     */
+/******************************/
+.pagination img {
+  margin: .5rem;
+  opacity: .7;
+  transition: all 0.2s;
+}
+
+.pagination img:hover {
+  filter: invert(20%);
+}
+
+#arrow-next {
+  -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+.step-links a {
+  text-decoration: none;
+}
+
+.step-links a:hover {
+  text-decoration: none;
+}
+
+.step-links {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 1rem;
+}
+
+.paginator-section {
+  display: flex;
+}
+
+.paginator {
+  width: 2.2rem;
+  height: 2.2rem;
+  margin-right: 0.2rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 0.125rem solid #09c236;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #09c236;
+  font: 600 .9rem/0 "Raleway", sans-serif;
+  transition: all 0.2s;
+}
+
+.paginator:hover {
+  cursor: pointer;
+  background-color: #09c23746;
+}
+
+
+.paginator.active {
+  background-color: #09c236;
+  color: #fff;
+}
+
+.paginator.active:hover {
+  opacity: .8;
+}
 
 /******************************/
 /*     01. Translate news     */
@@ -2141,7 +2214,7 @@ a:hover.back-to-top {
   }
   /* end of details lightboxes */
 
-  /* Pricing */
+  /* Quem somos */
   .cards-2 .card {
     display: inline-block;
     width: 17.125rem;
@@ -2152,18 +2225,18 @@ a:hover.back-to-top {
   /* end of pricing */
 
   /* Request */
-  .form-1 {
-    padding-top: 7.5rem;
+  /* .form-1 { */
+    /* padding-top: 7.5rem;
   }
 
   .form-1 .text-container {
     margin-top: 1.5rem;
     margin-bottom: 0;
-  }
+  } */
   /* end of request */
 
   /* Video */
-  .basic-3 .image-container {
+  /* .basic-3 .image-container {
     max-width: 53.125rem;
     margin-right: auto;
     margin-left: auto;
@@ -2171,7 +2244,7 @@ a:hover.back-to-top {
 
   .basic-3 p {
     width: 65%;
-  }
+  } */
   /* end of video */
 
   /* Testimonials */

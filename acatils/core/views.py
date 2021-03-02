@@ -24,9 +24,15 @@ class IndexView(TemplateView):
 
 
 class NewsView(ListView):
-    paginate_by = 10
+    paginate_by = 1
     model = News
     template_name = 'news.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(NewsView, self).get_context_data(**kwargs)
+
+        context['next_pages'] = range(context['page_obj'].number +1, context['page_obj'].number +5)
+        return context
 
 
 class NewsDetailView(DetailView):
