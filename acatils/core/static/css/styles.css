@@ -92,6 +92,10 @@
 /******************************/
 /*     01. List news     */
 /******************************/
+.list-news,
+.news-content {
+  width: 100%;
+}
 .list-news {
   display: flex;
   flex-direction: row;
@@ -101,6 +105,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
 .list-news .img-news-content img {
@@ -129,6 +134,7 @@
 
 .infos-flex {
   justify-content: space-between;
+  width: 100%;
 }
 
 .infos span,
