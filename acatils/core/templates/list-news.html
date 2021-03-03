@@ -7,7 +7,7 @@
 
     <div class="news-content">
         <h4><a href="{{ n.get_absolute_url }}">{{ n.title }}</a></h4>
-        <p>{{ n.text|slice:'0:300'| safe }} ...</p>
+        <p style="font-size: 1rem;">{{ n.text|slice:'0:300'| safe }} ...</p>
         <div class="infos-flex"
             {% if  n.img %}
                 style="flex-direction: column; margin-left: 0px;"
