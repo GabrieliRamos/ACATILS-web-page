@@ -1,7 +1,10 @@
 from django import forms
 from django.views.generic import ListView
 from django.core.mail.message import EmailMessage
+from django.core.mail import send_mail
 
+
+from acatils.settings import EMAIL_HOST_USER
 from .models import News
 
 
@@ -19,11 +22,11 @@ class ContactForm(forms.Form):
 
         content = f'Nome: {name}\nE-mail: {email}\nAssunto: {subject}\nMensagem: {message}'
 
-        mail = EmailMessage (
-            subject = subject,
-            body = content,
-            from_email = 'eduarda.b.taschetti@gmail.com',
-            to =('eduarda.bt@aluno.ifsc.edu.br', ),
-           headers={'Reply-To': email},
+        send_mail (
+            subject,
+            message,
+            EMAIL_HOST_USER,
+            [email],
+           fail_silently = False,
         )
-        mail.send()
+
