@@ -11,6 +11,7 @@ urlpatterns = [
     path('legislacao', TemplateView.as_view(template_name="legislation.html"), name="legislation"),
     path('documentos', TemplateView.as_view(template_name="documents.html"), name='documents'),
     path('valores-de-referencia', TemplateView.as_view(template_name="reference-values.html"), name='reference-values'),
+    path('seja-socio', TemplateView.as_view(template_name="associate.html"), name='associate'),
 
     path('contato', ContactView.as_view(), name='contact'),
     

@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% block title %} Seja sócio {% endblock %}
+{% load static %}
+{% block title_header %} Seja sócio {% endblock %}
+{% block breadcrumbs %} <a href="{% url 'index' %}">Home</a> >> <span> Seja sócio </span> {% endblock %}
+
+{% block css %}
+
+.data-content {
+display: block;
+margin-left: 2rem;
+}
+
+
+
+
+{% endblock %}
+
+{% block content %}
+    <p>Os procedimentos para se associar são o envio de cadastro preenchido, que segue em anexo, solicitamos o retorno via
+        e-mail, com sua foto e o comprovante de pagamento da anuidade digitalizado no valor de R$ 100,00 nos dados bancários
+        que seguem:</p>
+
+    <div class="data-content">Associação Catarinense de Tradutores e Intérpretes de Língua de Sinais</div>
+    <div class="data-content"><strong>Agência: </strong> 1453-2</div>
+    <div class="data-content"><strong>Banco: </strong> Banco do Brasil</div>
+    <div class="data-content"><strong>Conta: </strong> 46101-6</div>
+
+    <p class="data-content" style="margin-top: 1rem;">Formulário de cadastro: <a
+            href="{% static 'img/cadastro_socios.docx' %}">Download do formulário</a> - enviar para o e-mail <strong>
+            acatils@gmail.com.</strong></p>
+
+    <p style="margin-top: 2rem;">Ressaltamos que o valor a ser pago para efetivar a associação é de fundamental importância
+        para que esta Associação
+        tenha recursos para o exercício das atividades de representação da categoria, bem como o cumprimento de seus
+        compromissos com a manutenção do site, gastos com o contador, com documentações, com registros, com taxas, encontros
+        em
+        que os associados têm benefícios, bem como para participar da Federação Brasileira das Associações dos Profissionais
+        Tradutores e Intérpretes e Guia-Intérpretes de Língua de Sinais – FEBRAPILS.</p>
+{% endblock %}

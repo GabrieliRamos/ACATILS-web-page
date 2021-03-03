@@ -18,56 +18,53 @@
         {% endif %}
     
       
-
-<div class="container" >
-    <div class="form" id="form">
-        <div class="contact-info">
+        <div class="form" id="form">
             <h2>Onde estamos</h2>
             <p class="text">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
                 dolorum adipisci recusandae praesentium dicta!
             </p>
 
-            <div class="info">
-                <div class="information">
-                    <a href="mailto:acatils@gmail.com">
-                        <img src="{% static 'img/email.png' %}" class="icon" alt="E-mail" />
-                    </a>
-                    <span>acatils@gmail.com</span>
-                </div>
-                <div class="information">
-                    <a href="tel:554733332222">
-                        <img src="{% static 'img/phone.png' %}" class="icon" alt="Telefone" />
-                    </a>
-                    <span>+55 (48) 9169-0268</span>
-                </div>
-            
-                    <div class="social-media">
-                        <span>Acompanhe-nos nas redes sociais:</span>
-                        <div class="social-icons">
-                            <a href="https://www.facebook.com/ACATILS-112968902115973/" target="_blank">
-                                <img class="social-icon" src="{% static 'img/facebook.svg' %}" alt="Página no Facebook da Acatils">
-                            </a>
-                            <a href="https://www.youtube.com/channel/UCJgGXUfexmil_7MvjcfMKJA" target="_blank">
-                                <img class="social-icon" src="{% static 'img/youtube.svg' %}" alt="Canal no Youtube da Acatils">
-                            </a>
-                            <a href="https://www.instagram.com/acatils.comunicacao/" target="_blank">
-                                <img class="social-icon" src="{% static 'img/instagram.svg' %}" alt="Instagram da Acatils">
-                            </a>
-                            <a href="https://twitter.com/acatils" target="_blank">
-                                <img class="social-icon" src="{% static 'img/twitter.svg' %}" alt="Página no Twitter da Acatils">
-                            </a>
-                            <a href="https://api.whatsapp.com/send?phone=554891690268&text=Ol%C3%A1!" target="_blank">
-                                <img class="social-icon" src="{% static 'img/whatsapp.svg' %}" alt="Whatsapp da Acatils">
-                            </a>
-                        </div>
+                <div class="info">
+                    <div class="information">
+                        <a href="mailto:acatils@gmail.com">
+                            <img src="{% static 'img/email.png' %}" class="icon" alt="E-mail" />
+                        </a>
+                        <span>acatils@gmail.com</span>
                     </div>
-                </div>
+                    <div class="information">
+                        <a href="tel:554733332222">
+                            <img src="{% static 'img/phone.png' %}" class="icon" alt="Telefone" />
+                        </a>
+                        <span>+55 (48) 9169-0268</span>
+                    </div>
+                
+                            <div class="social-media">
+                                <span>Acompanhe-nos nas redes sociais:</span>
+                                    <div class="social-icons">
+                                        <a href="https://www.facebook.com/ACATILS-112968902115973/" target="_blank">
+                                            <img class="social-icon" src="{% static 'img/facebook.svg' %}" alt="Página no Facebook da Acatils">
+                                        </a>
+                                        <a href="https://www.youtube.com/channel/UCJgGXUfexmil_7MvjcfMKJA" target="_blank">
+                                            <img class="social-icon" src="{% static 'img/youtube.svg' %}" alt="Canal no Youtube da Acatils">
+                                        </a>
+                                        <a href="https://www.instagram.com/acatils.comunicacao/" target="_blank">
+                                            <img class="social-icon" src="{% static 'img/instagram.svg' %}" alt="Instagram da Acatils">
+                                        </a>
+                                        <a href="https://twitter.com/acatils" target="_blank">
+                                            <img class="social-icon" src="{% static 'img/twitter.svg' %}" alt="Página no Twitter da Acatils">
+                                        </a>
+                                        <a href="https://api.whatsapp.com/send?phone=554891690268&text=Ol%C3%A1!" target="_blank">
+                                            <img class="social-icon" src="{% static 'img/whatsapp.svg' %}" alt="Whatsapp da Acatils">
+                                        </a>
+                                    </div>
+                            </div>
+                    </div>
             </div>
-        </div>
+     
 
         <div class="contact-form">
-            <form  action="{% url 'contact' %}" method="post" autocomplete="on" id="contact_form">
+            <form  action="{% url 'contact' %}" method="post" autocomplete="on" >
                 {% csrf_token %}
                 <h2 class="title">Contate-nos</h2>
                 <div class="input-container">
@@ -86,5 +83,5 @@
             </form>
         </div>
     </div>
-</div>
+
 {% endblock %}
