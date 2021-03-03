@@ -1018,6 +1018,10 @@ input[type="checkbox"] {
   border: none;
   color: #393939;
   font-size: 2rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 101
 }
 
 .navbar-custom

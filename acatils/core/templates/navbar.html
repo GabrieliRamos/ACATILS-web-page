@@ -13,20 +13,14 @@
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
-        <!-- Text Logo - Use this if you don't have a graphic logo -->
-        <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Evolo</a> -->
-
-        <!-- Image Logo -->
+    
         <a class="navbar-brand logo-image" href="{% url 'index' %}"><img src="{% static 'img/logo.webp' %}"
                 alt="Logo ACATILS" /></a>
 
-        <!-- Mobile Menu Toggle Button -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-awesome fas fa-bars" style="font-size: .8rem;">MENU</span>
-            <span class="navbar-toggler-awesome fas fa-times" style="font-size: .8rem;">MENU</span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"  aria-label="Toggle navigation">
+            <span class="navbar-toggler-awesome fas fa-bars fas fa-times" style="font-size: .8rem;">MENU</span>
         </button>
-        <!-- end of mobile menu toggle button -->
+
 
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav ml-auto">
@@ -43,7 +37,7 @@
 
                 <!-- Dropdown Menu -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle page-scroll" href="" id="navbarDropdown" role="button"
+                    <a class="nav-link dropdown-toggle page-scroll" id="navbarDropdown" role="button"
                         aria-haspopup="true" aria-expanded="false">Biblioteca</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{% url 'common-questions' %}"><span class="item-text">Perguntas
@@ -72,6 +66,4 @@
            
         </div>
     </nav>
-    <!-- end of navbar -->
-    <!-- end of navigation -->
 </body>
