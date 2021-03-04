@@ -20,13 +20,14 @@ class ContactForm(forms.Form):
         subject = self.cleaned_data['subject']
         message = self.cleaned_data['message']
 
-        content = f'Nome: {name}\n\nE-mail: {email}\n\nAssunto: {subject}\n\n\nMensagem: \n\n{message}'
+        content = f'Nome: {name}\nE-mail: {email}\nAssunto: {subject}\n\n\nMensagem: \n\n{message}'
 
-        send_mail (
-            f'Contato - {subject}',
-            content,
-            EMAIL_HOST_USER,
-            [email],
-           fail_silently = False,
+        email_message = EmailMessage(
+            subject = subject,
+            body = content,
+            from_email = EMAIL_HOST_USER,
+            to= [email],
+            reply_to= (email,),
         )
 
+        email_message.send()
