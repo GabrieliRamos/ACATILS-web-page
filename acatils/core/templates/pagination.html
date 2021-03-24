@@ -1,17 +1,44 @@
+{% load static %}
 <div class="pagination">
     <span class="step-links">
         {% if page_obj.has_previous %}
-            <a href="?page=1">&laquo; first</a>
-            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            <a href="?page=1">&laquo; Primeira página</a>
+            <a href="?page={{ page_obj.previous_page_number }}">
+                <img src="{% static 'img/arrow.svg' %}" alt="">
+            </a>
         {% endif %}
 
-        <span class="current">
-            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-        </span>
+        <!-- previous -->
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}">
+                <div class="paginator">
+                    <span>{{ page_obj.previous_page_number }}</span>
+                </div>
+            </a>
+        {% endif %}
+
+        <!-- current -->
+            <a href="?page={{ page_obj.number }}">
+                <div class="paginator active">
+                    <span>{{ page_obj.number }}</span>
+                </div>
+            </a>
+
+        <!-- next -->
+        {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">
+                    <div class="paginator">
+                        <span>{{ page_obj.next_page_number }}</span>
+                    </div>
+                </a>
+        {% endif %}
+     
 
         {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">next</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            <a href="?page={{ page_obj.next_page_number }}">
+                <img id="arrow-next" src="{% static 'img/arrow.svg' %}" alt="">
+            </a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">Última página &raquo;</a>
         {% endif %}
     </span>
 </div>

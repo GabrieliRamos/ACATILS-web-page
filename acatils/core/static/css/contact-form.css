@@ -3,7 +3,7 @@
   }
 
   .form {
-    max-width: 80%;
+    width: 80%;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.1);
@@ -16,25 +16,18 @@
   .contact-form {
     background-color: #009726;
     position: relative;
+    width: 100%;
+    border-radius: 10px;
+    width: 90%;
   }
   
-  .contact-form:before {
-    content: "";
-    position: absolute;
-    width: 26px;
-    height: 26px;
-    background-color: #009726;
-    transform: rotate(45deg);
-    top: -13px;
-    left: initial;
-    right: 70px;
-  }
   
   #form {
     padding: 2.3rem 2.2rem;
     z-index: 10;
     overflow: hidden;
     position: relative;
+    width: 70vw;
   }
   
   .input-container {
@@ -142,7 +135,6 @@
     width: 35px;
     height: 35px;
     border-radius: 50%;
-    background: linear-gradient(45deg, #09c236, #009726);
     color: #fff;
     text-align: center;
     line-height: 35px;
@@ -170,19 +162,6 @@
       margin-top: 2rem;
     }
   
-    .contact-info:before {
-      bottom: initial;
-      top: -75px;
-      right: 65px;
-      transform: scale(0.95);
-    }
-  
-    .contact-form:before {
-      top: -13px;
-      left: initial;
-      right: 70px;
-    }
-  
     .square {
       transform: translate(140%, 43%);
       height: 350px;
@@ -198,12 +177,17 @@
   }
   
   @media (max-width: 480px) {
+
+    #form,
+    form {
+      width: 100%;
+    }
     .container-contact {
       padding: 0;
     }
-  
-    .contact-info:before {
-      display: none;
+
+    .contact-form {
+      width: 100%;
     }
     
     form,

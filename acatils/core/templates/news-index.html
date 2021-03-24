@@ -4,10 +4,9 @@
         <div class="row">
             <div class="col-lg-12">
                 <h2>Notícias</h2>
-                <p class="p-heading p-large">Confira as novidades da Acatils é uma entidade profissional autônoma, sem
-                    fins lucrativos ou econômicos, fundada em 22 de setembro de 2008, de duração indeterminada.</p>
-            </div> <!-- end of col -->
-        </div> <!-- end of row -->
+                <p class="p-heading p-large">Confira as novidades da Acatils.</p>
+            </div> 
+        </div> 
 
         <!-- news -->
         <div class="basic-1">
@@ -15,21 +14,18 @@
                 <div class="row">
 
                     {% for n in news|slice:'0:2' %}
-                    <!-- news -->
                     <div class="col-lg-6">
                         <div class="text-container">
                             <h3>{{ n.title }}</h3>
                             <p>{{ n.text|slice:'0:150'| safe}} ...</p>
                             <a class="btn-solid-reg" href="{{ n.get_absolute_url }}">Ver Mais</a>
-                        </div> <!-- end of text-container -->
-                    </div> <!-- end of col -->
-                    <!-- end of news -->
+                        </div>
+                    </div>
                     {% endfor %}
 
-
-                </div> <!-- end of row -->
-            </div> <!-- end of container -->
-        </div> <!-- end of basic-1 -->
+                </div> 
+            </div> 
+        </div>
         <!-- end of news -->
 
 

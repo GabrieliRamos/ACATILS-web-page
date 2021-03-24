@@ -8,8 +8,8 @@
 
 {% block content %}
 
-{% if object.translation %}
-    <iframe id="iframe-translate" width="560" height="315" src="https://www.youtube.com/embed/{{ object.translation }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+{% if embed %}
+    <iframe id="iframe-translate" width="560" height="315" src="https://www.youtube.com/embed/{{ embed }}?rel=0&color=white&showinfo=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 {% endif %}
 
 <!-- Terms Content -->
@@ -36,9 +36,9 @@
                         </div>
                         <div>
                             <p>
-                                <a target="_blank" href="https://www.facebook.com/sharer.php?u={{ object.get_absolute_url }}"><img class="social-icon" src="{% static 'img/facebook.svg' %}" alt=""></a>
-                                <a target="_blank" href="https://twitter.com/share?url={{ object.get_absolute_url }}"><img class="social-icon" src="{% static 'img/twitter.svg' %}" alt=""></a>
-                                <a target="_blank" href="https://api.whatsapp.com/send?text={{ object.title}} {{ object.get_absolute_url }}"><img class="social-icon" src="{% static 'img/whatsapp.svg' %}" alt=""></a>
+                                <a target="_blank" href="https://www.facebook.com/sharer.php?u=https://acatils.herokuapp.com{{object.get_absolute_url}}"><img class="social-icon" src="{% static 'img/facebook.svg' %}" alt=""></a>
+                                <a target="_blank" href="https://twitter.com/share?url=https://acatils.herokuapp.com{{object.get_absolute_url}}"><img class="social-icon" src="{% static 'img/twitter.svg' %}" alt=""></a>
+                                <a target="_blank" href="https://api.whatsapp.com/send?text={{ object.title}} https://acatils.herokuapp.com/noticias/{{object.slug}}/"><img class="social-icon" src="{% static 'img/whatsapp.svg' %}" alt=""></a>
                             </p>
                         </div>
                     </div>
